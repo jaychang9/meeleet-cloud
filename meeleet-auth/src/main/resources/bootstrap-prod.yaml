@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: prod
+        group: LEARN_GROUP
+        server-addr: http://nacos.meeleet.tech:8848
+      config:
+        namespace: prod
+        group: LEARN_GROUP
+        file-extension: yaml
+        prefix: ${spring.application.name}
+        shared-configs[0]:
+          group: LEARN_GROUP
+          data-id: learn-common.yaml
+          refresh: true

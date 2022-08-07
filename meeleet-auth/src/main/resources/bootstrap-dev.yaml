@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: dev
+        group: LEARN_GROUP
+        server-addr: http://localhost:8848
+      config:
+        namespace: dev
+        group: LEARN_GROUP
+        file-extension: yaml
+        prefix: ${spring.application.name}
+        shared-configs[0]:
+          group: LEARN_GROUP
+          data-id: learn-common.yaml
+          refresh: true
+
+logging:
+  level:
+    org.springframework: debug
+

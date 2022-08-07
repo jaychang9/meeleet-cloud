@@ -1,0 +1,59 @@
+# 以下文件放Nacos Config，Data ID：learn-auth.yaml，Group：LEARN_GROUP
+server:
+  port: 8803
+
+spring:
+  redis:
+    host: 127.0.0.1
+    database: 14
+  cache:
+    cache-names: l1cache
+    type: caffeine
+    caffeine:
+      spec: initialCapacity=50,maximumSize=500,expireAfterWrite=60s
+
+dubbo:
+  protocol:
+    name: dubbo
+    # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+    port: -1
+  registry:
+    # 挂载到 Spring Cloud 注册中心
+    address: spring-cloud://localhost
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.meeleet.learn.auth.config,com.meeleet.learn.auth.security.core.clientdetails,com.meeleet.learn.auth.security.core.userdetails.member,com.meeleet.learn.auth.security.core.userdetails.sysuser
+  cloud:
+    # 不配置默认是订阅所有服务，但是这个是服务提供者，不需要订阅其他服务，所以这里就配置一个自己好了，以免订阅所有服务
+    subscribed-services: learn-sysms,learn-ums
+  consumer:
+    check: false
+
+wechat:
+  weapp:
+    appid: someappid
+    secret: somesecret
+
+# springdoc api文档
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    url:
+      path: /swagger-ui.html
+    oauth:
+      client-id: client
+      client-secret: 123456
+      scopes: all
+  oauth-flow:
+    token-url: http://localhost:9999/learn-auth/oauth/token
+    refresh-token-url: http://localhost:9999/learn-auth/oauth/refresh_token
+  server-url: ${gateway.base-url}/${spring.application.name}
+  show-actuator: true
+  packages-to-scan: com.meeleet.learn.auth.controller
+  info:
+    version: 1.0.0
+
+logging:
+  com.meeleet.learn.auth: DEBUG

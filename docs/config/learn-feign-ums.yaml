@@ -1,0 +1,18 @@
+# 以下文件放Nacos Config，Data ID：learn-feign-ums.yaml，Group：LEARN_GROUP
+server:
+  port: 8802
+
+dubbo:
+  protocol:
+    name: dubbo
+    # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+    port: -1
+  registry:
+    # 挂载到 Spring Cloud 注册中心
+    address: spring-cloud://localhost
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.meeleet.learn.feignums.service.impl
+  cloud:
+    # 不配置默认是订阅所有服务，但是这个是服务提供者，不需要订阅其他服务，所以这里就配置一个自己好了，以免订阅所有服务
+    subscribed-services: ${spring.application.name}
