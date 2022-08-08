@@ -10,7 +10,7 @@
     <version>${revision}</version>
   </parent>
 
-  <artifactId>meeleet-spring-boot-starters</artifactId>
+  <artifactId>meeleet-starters</artifactId>
   <name>Meeleet Spring Boot Starters</name>
   <description>Meeleet Spring Boot Starters</description>
 </project>
