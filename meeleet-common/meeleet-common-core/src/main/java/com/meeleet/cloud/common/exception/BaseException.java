@@ -23,7 +23,7 @@ public class BaseException extends RuntimeException {
     protected Object[] args;
 
     public BaseException(IResultCode resultCode) {
-        super(resultCode.getMsg());
+        super(resultCode.getMessage());
         this.resultCode = resultCode;
     }
 
@@ -36,7 +36,7 @@ public class BaseException extends RuntimeException {
             }
 
             @Override
-            public String getMsg() {
+            public String getMessage() {
                 return message;
             }
         };
@@ -54,11 +54,11 @@ public class BaseException extends RuntimeException {
         this.args = args;
     }
 
-    public IResultCode getResponseEnum() {
+    public IResultCode getResultCode() {
         return resultCode;
     }
 
-    public void setResponseEnum(IResultCode resultCode) {
+    public void setResultCode(IResultCode resultCode) {
         this.resultCode = resultCode;
     }
 

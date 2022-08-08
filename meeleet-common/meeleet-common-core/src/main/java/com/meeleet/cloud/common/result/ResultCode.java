@@ -78,13 +78,13 @@ public enum ResultCode implements IResultCode, Serializable {
     DATABASE_PRIMARY_KEY_CONFLICT("C0341", "主键冲突");
 
     private final String code;
-    private final String msg;
+    private final String message;
 
     @Override
     public String toString() {
         return "{" +
                 "\"code\":\"" + code + '\"' +
-                ", \"msg\":\"" + msg + '\"' +
+                ", \"msg\":\"" + message + '\"' +
                 '}';
     }
 

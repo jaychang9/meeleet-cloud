@@ -7,6 +7,6 @@ public interface IResultCode {
 
     String getCode();
 
-    String getMsg();
+    String getMessage();
 
 }
