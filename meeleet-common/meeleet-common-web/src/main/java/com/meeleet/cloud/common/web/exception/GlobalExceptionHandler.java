@@ -2,7 +2,7 @@ package com.meeleet.cloud.common.web.exception;
 
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.meeleet.cloud.common.exception.BizException;
+import com.meeleet.cloud.common.exception.BusinessException;
 import com.meeleet.cloud.common.result.Result;
 import com.meeleet.cloud.common.result.ResultCode;
 import lombok.extern.slf4j.Slf4j;
@@ -195,8 +195,8 @@ public class GlobalExceptionHandler {
 //    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(BizException.class)
-    public <T> Result<T> handleBizException(BizException e) {
+    @ExceptionHandler(BusinessException.class)
+    public <T> Result<T> handleBizException(BusinessException e) {
         log.warn("业务异常，异常原因：{}", e.getMessage(), e);
         if (e.getResultCode() != null) {
             return Result.failed(e.getResultCode());

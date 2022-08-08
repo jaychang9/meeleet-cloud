@@ -13,9 +13,10 @@
     <artifactId>meeleet-common-web</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-common-web</artifactId>
+            <artifactId>meeleet-common-core</artifactId>
         </dependency>
 
         <dependency>

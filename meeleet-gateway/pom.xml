@@ -5,11 +5,23 @@
 
     <parent>
         <groupId>com.meeleet.cloud</groupId>
-        <artifactId>meeleet-gateway</artifactId>
+        <artifactId>meeleet-parent</artifactId>
+        <relativePath>../meeleet-parent</relativePath>
         <version>${revision}</version>
     </parent>
 
     <artifactId>meeleet-gateway</artifactId>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-dependencies</artifactId>
+                <version>${revision}</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
 
@@ -81,15 +93,15 @@
         <!-- Second Library -->
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>common-core</artifactId>
+            <artifactId>meeleet-common-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>common-security</artifactId>
+            <artifactId>meeleet-common-security</artifactId>
         </dependency>
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>common-redis</artifactId>
+            <artifactId>meeleet-common-redis</artifactId>
         </dependency>
 
         <!-- Unit Test -->

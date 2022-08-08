@@ -13,20 +13,15 @@
     <artifactId>meeleet-common-security</artifactId>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>common-core</artifactId>
+            <artifactId>meeleet-common-core</artifactId>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
