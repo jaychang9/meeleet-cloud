@@ -1,6 +1,6 @@
 package com.meeleet.cloud.common.auth.security.extension.refresh;
 
-import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
 import com.meeleet.cloud.common.base.IBaseEnum;
 import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
 import com.meeleet.cloud.common.security.util.RequestUtils;

@@ -4,7 +4,7 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
 import cn.hutool.core.bean.BeanUtil;
-import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import lombok.SneakyThrows;
 import org.springframework.security.authentication.AuthenticationProvider;

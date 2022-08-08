@@ -1,7 +1,7 @@
 package com.meeleet.cloud.common.auth.security.extension.mobile;
 
 import cn.hutool.core.util.StrUtil;
-import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
 import com.meeleet.cloud.common.constant.StringConstant;
 import com.meeleet.cloud.common.exception.BusinessException;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
