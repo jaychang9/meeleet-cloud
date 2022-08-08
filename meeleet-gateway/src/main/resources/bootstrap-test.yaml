@@ -1,0 +1,19 @@
+spring:
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    throw-exception-if-no-handler-found: true
+  cloud:
+    nacos:
+      discovery:
+        namespace: test
+        group: LEARN_GROUP
+        server-addr: nacos-headless.infrastructure:8848 # 使用k8s无头服务
+      config:
+        namespace: test
+        group: LEARN_GROUP
+        prefix: ${spring.application.name}
+        file-extension: yaml
