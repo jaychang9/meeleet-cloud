@@ -207,11 +207,6 @@
             <!-- Second Part Api Define -->
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-dependencies</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -238,26 +233,6 @@
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-common-file</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-ums-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-feign-ums-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-sysms-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-auth-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.meeleet.cloud</groupId>
         <artifactId>meeleet-common</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <modelVersion>4.0.0</modelVersion>
-
     <artifactId>meeleet-common-file</artifactId>
+    <name>Meeleet Common File</name>
+    <description>Meeleet Common File</description>
 
     <dependencies>
 
@@ -31,7 +31,7 @@
             <artifactId>minio</artifactId>
         </dependency>
 
-        <!-- 图片压缩 -->
+        <!-- 图片处理 -->
         <dependency>
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>

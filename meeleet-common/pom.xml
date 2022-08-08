@@ -21,6 +21,7 @@
         <module>meeleet-common-mybatis</module>
         <module>meeleet-common-file</module>
         <module>meeleet-common-security</module>
+        <module>meeleet-common-auth</module>
         <module>meeleet-common-web</module>
     </modules>
 

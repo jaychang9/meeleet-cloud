@@ -1,8 +1,0 @@
-spring:
-  main:
-    allow-circular-references: true
-    allow-bean-definition-overriding: true
-  application:
-    name: learn-auth
-  profiles:
-    active: dev

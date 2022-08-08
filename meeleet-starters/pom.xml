@@ -3,7 +3,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>com.meeleet.cloud</groupId>
     <artifactId>meeleet-parent</artifactId>
@@ -11,6 +10,7 @@
     <version>${revision}</version>
   </parent>
 
-  <artifactId>meeleet-starters</artifactId>
-
+  <artifactId>meeleet-spring-boot-starters</artifactId>
+  <name>Meeleet Spring Boot Starters</name>
+  <description>Meeleet Spring Boot Starters</description>
 </project>
