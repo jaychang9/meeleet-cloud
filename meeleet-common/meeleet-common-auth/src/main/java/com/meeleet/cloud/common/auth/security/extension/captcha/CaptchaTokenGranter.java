@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.meeleet.cloud.common.constant.StringConstant;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.security.oauth2.provider.*;

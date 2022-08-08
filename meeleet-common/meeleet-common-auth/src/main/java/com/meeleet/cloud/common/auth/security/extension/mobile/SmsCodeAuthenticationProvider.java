@@ -3,6 +3,7 @@ package com.meeleet.cloud.common.auth.security.extension.mobile;
 import cn.hutool.core.util.StrUtil;
 import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
 import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.exception.BusinessException;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -42,7 +43,7 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider, In
             String correctCode = redisTemplate.opsForValue().get(codeKey);
             // 验证码比对
             if (StrUtil.isBlank(correctCode) || !code.equals(correctCode)) {
-                throw new BizException("验证码不正确");
+                throw new BusinessException("验证码不正确");
             }
             // 比对成功删除缓存的验证码
             redisTemplate.delete(codeKey);

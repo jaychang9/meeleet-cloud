@@ -1,6 +1,5 @@
 package com.meeleet.cloud.common.auth.security.extension.refresh;
 
-import com.meeleet.cloud.auth.security.config.AuthorizationServerConfig;
 import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
 import com.meeleet.cloud.common.base.IBaseEnum;
 import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
@@ -25,8 +24,6 @@ public class PreAuthenticatedUserDetailsService<T extends Authentication> implem
 
     /**
      * 客户端ID和用户服务 UserDetailService 的映射
-     *
-     * @see AuthorizationServerConfig#tokenServices(org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer)
      */
     private Map<String, ExtUserDetailsService> userDetailsServiceMap;
 
