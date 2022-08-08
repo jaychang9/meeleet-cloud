@@ -4,24 +4,21 @@ import com.meeleet.cloud.common.result.IResultCode;
 import lombok.Getter;
 
 @Getter
-public class BusinessException extends RuntimeException {
+public class BusinessException extends BaseException {
 
-    public IResultCode resultCode;
-
-    public BusinessException(IResultCode errorCode) {
-        super(errorCode.getMsg());
-        this.resultCode = errorCode;
+    public BusinessException(IResultCode resultCode) {
+        super(resultCode);
     }
 
-    public BusinessException(String message) {
-        super(message);
+    public BusinessException(String code, String message) {
+        super(code, message);
     }
 
-    public BusinessException(String message, Throwable cause) {
-        super(message, cause);
+    public BusinessException(IResultCode resultCode, Object[] args, String message) {
+        super(resultCode, args, message);
     }
 
-    public BusinessException(Throwable cause) {
-        super(cause);
+    public BusinessException(IResultCode resultCode, Object[] args, String message, Throwable cause) {
+        super(resultCode, args, message, cause);
     }
 }
