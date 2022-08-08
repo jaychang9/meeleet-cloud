@@ -32,6 +32,8 @@
         <redission.version>3.16.8</redission.version>
         <nimbus-jose-jwt.version>8.23</nimbus-jose-jwt.version>
         <mybatis-plus.version>3.4.3</mybatis-plus.version>
+        <jedis-mock.version>1.0.3</jedis-mock.version>
+        <podam.version>7.2.9.RELEASE</podam.version>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
@@ -201,6 +203,22 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- 单元测试 -->
+            <!-- 单元测试，我们采用内嵌的 Redis 数据库 -->
+            <dependency>
+                <groupId>com.github.fppt</groupId>
+                <artifactId>jedis-mock</artifactId>
+                <version>${jedis-mock.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- 单元测试，随机生成 POJO 类 -->
+            <dependency>
+                <groupId>uk.co.jemos.podam</groupId>
+                <artifactId>podam</artifactId>
+                <version>${podam.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!-- 推荐使用${project.version}管理子模块依赖版本（兼容不使用${revision}的模式），亦可直接使用${revision} -->
