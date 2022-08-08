@@ -1,4 +1,4 @@
-package com.meeleet.learn.auth.security.extension.mobile;
+package com.meeleet.cloud.auth.security.extension.mobile;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;

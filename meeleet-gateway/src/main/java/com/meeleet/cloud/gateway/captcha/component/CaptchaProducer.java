@@ -1,6 +1,6 @@
-package com.meeleet.learn.gateway.component.captcha.component;
+package com.meeleet.cloud.gateway.component.captcha.component;
 
-import com.meeleet.learn.gateway.captcha.enums.CaptchaTypeEnum;
+import com.meeleet.cloud.gateway.captcha.enums.CaptchaTypeEnum;
 import com.wf.captcha.*;
 import com.wf.captcha.base.Captcha;
 import org.springframework.stereotype.Component;

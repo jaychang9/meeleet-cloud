@@ -1,10 +1,10 @@
-package com.meeleet.learn.auth.security.extension.refresh;
+package com.meeleet.cloud.auth.security.extension.refresh;
 
-import com.meeleet.learn.auth.security.config.AuthorizationServerConfig;
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.base.IBaseEnum;
-import com.meeleet.learn.common.security.enums.AuthenticationIdentityEnum;
-import com.meeleet.learn.common.security.util.RequestUtils;
+import com.meeleet.cloud.auth.security.config.AuthorizationServerConfig;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.base.IBaseEnum;
+import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
+import com.meeleet.cloud.common.security.util.RequestUtils;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.security.core.Authentication;

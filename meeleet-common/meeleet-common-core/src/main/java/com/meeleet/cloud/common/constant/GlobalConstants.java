@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.constant;
+package com.meeleet.cloud.common.constant;
 
 /**
  * 全局常量

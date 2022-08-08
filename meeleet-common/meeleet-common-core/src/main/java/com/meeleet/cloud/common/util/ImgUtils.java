@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.util;
+package com.meeleet.cloud.common.util;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;

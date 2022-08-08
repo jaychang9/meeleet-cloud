@@ -1,11 +1,11 @@
-package com.meeleet.learn.gateway.filter;
+package com.meeleet.cloud.gateway.filter;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.meeleet.learn.common.result.ResultCode;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
-import com.meeleet.learn.gateway.util.ResponseUtils;
+import com.meeleet.cloud.common.result.ResultCode;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.gateway.util.ResponseUtils;
 import com.nimbusds.jose.JWSObject;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

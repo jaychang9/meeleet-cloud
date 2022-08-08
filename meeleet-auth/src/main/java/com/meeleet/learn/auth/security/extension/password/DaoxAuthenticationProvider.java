@@ -1,7 +1,7 @@
-package com.meeleet.learn.auth.security.extension.password;
+package com.meeleet.cloud.auth.security.extension.password;
 
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;

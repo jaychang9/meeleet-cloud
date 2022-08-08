@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.redis;
+package com.meeleet.cloud.common.redis;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.Setter;

@@ -1,9 +1,9 @@
-package com.meeleet.learn.auth.security.extension.captcha;
+package com.meeleet.cloud.auth.security.extension.captcha;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.StrUtil;
-import com.meeleet.learn.common.constant.StringConstant;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;

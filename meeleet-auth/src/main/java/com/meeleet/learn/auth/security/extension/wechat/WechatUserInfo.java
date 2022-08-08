@@ -1,4 +1,4 @@
-package com.meeleet.learn.auth.security.extension.wechat;
+package com.meeleet.cloud.auth.security.extension.wechat;
 
 import lombok.Data;
 

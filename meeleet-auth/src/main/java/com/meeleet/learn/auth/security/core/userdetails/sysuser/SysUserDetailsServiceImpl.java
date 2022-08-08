@@ -1,9 +1,9 @@
-package com.meeleet.learn.auth.security.core.userdetails.sysuser;
+package com.meeleet.cloud.auth.security.core.userdetails.sysuser;
 
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.result.ResultCode;
-import com.meeleet.learn.sys.pojo.dto.AuthUserDTO;
-import com.meeleet.learn.sys.rpc.ISysUserDubboService;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.result.ResultCode;
+import com.meeleet.cloud.sys.pojo.dto.AuthUserDTO;
+import com.meeleet.cloud.sys.rpc.ISysUserDubboService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.cache.annotation.Cacheable;

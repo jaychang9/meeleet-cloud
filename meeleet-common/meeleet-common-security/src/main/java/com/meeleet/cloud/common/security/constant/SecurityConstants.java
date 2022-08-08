@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.security.constant;
+package com.meeleet.cloud.common.security.constant;
 
 import java.util.Arrays;
 import java.util.List;

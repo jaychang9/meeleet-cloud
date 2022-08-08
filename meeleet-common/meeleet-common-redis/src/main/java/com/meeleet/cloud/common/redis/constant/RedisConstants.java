@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.redis.constant;
+package com.meeleet.cloud.common.redis.constant;
 
 public interface RedisConstants {
 

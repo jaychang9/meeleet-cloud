@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.mybatis.handler;
+package com.meeleet.cloud.common.mybatis.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.type.JdbcType;

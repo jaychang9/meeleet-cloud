@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.constant;
+package com.meeleet.cloud.common.constant;
 
 /**
  * 字符串常量类

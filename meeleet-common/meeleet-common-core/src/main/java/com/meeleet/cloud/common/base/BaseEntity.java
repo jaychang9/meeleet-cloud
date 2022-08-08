@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.base;
+package com.meeleet.cloud.common.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

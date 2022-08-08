@@ -1,9 +1,9 @@
-package com.meeleet.learn.auth.security.core.userdetails.sysuser;
+package com.meeleet.cloud.auth.security.core.userdetails.sysuser;
 
 import cn.hutool.core.collection.CollectionUtil;
-import com.meeleet.learn.auth.common.enums.PasswordEncoderTypeEnum;
-import com.meeleet.learn.common.constant.GlobalConstants;
-import com.meeleet.learn.sys.pojo.dto.AuthUserDTO;
+import com.meeleet.cloud.auth.common.enums.PasswordEncoderTypeEnum;
+import com.meeleet.cloud.common.constant.GlobalConstants;
+import com.meeleet.cloud.sys.pojo.dto.AuthUserDTO;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

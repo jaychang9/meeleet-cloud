@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.factory;
+package com.meeleet.cloud.common.factory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -1,6 +1,6 @@
-package com.meeleet.learn.auth.config;
+package com.meeleet.cloud.auth.config;
 
-import com.meeleet.learn.ums.rpc.IUmsMemberDubboService;
+import com.meeleet.cloud.ums.rpc.IUmsMemberDubboService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Component;
 

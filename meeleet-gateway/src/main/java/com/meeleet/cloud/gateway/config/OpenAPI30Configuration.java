@@ -1,4 +1,4 @@
-package com.meeleet.learn.gateway.config;
+package com.meeleet.cloud.gateway.config;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;

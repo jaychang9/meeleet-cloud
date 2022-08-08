@@ -1,4 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.meeleet.learn.common.file.service.MinioService,\
-  com.meeleet.learn.common.file.controller.FileController
+  com.meeleet.cloud.common.file.service.MinioService,\
+  com.meeleet.cloud.common.file.controller.FileController
 

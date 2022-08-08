@@ -1,11 +1,14 @@
-package com.meeleet.learn.common.mybatis.config;
+package com.meeleet.cloud.common.mybatis.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.meeleet.learn.common.mybatis.handler.*;
+import com.meeleet.cloud.common.mybatis.handler.IntegerArrayJsonTypeHandler;
+import com.meeleet.cloud.common.mybatis.handler.LongArrayJsonTypeHandler;
+import com.meeleet.cloud.common.mybatis.handler.MyMetaObjectHandler;
+import com.meeleet.cloud.common.mybatis.handler.StringArrayJsonTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.springframework.context.annotation.Bean;

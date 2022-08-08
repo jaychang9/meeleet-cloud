@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.pojo;
+package com.meeleet.cloud.common.pojo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;

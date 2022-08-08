@@ -1,10 +1,10 @@
-package com.meeleet.learn.auth.security.extension.mobile;
+package com.meeleet.cloud.auth.security.extension.mobile;
 
 import cn.hutool.core.util.StrUtil;
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.constant.StringConstant;
-import com.meeleet.learn.common.exception.BizException;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.exception.BizException;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.AuthenticationProvider;

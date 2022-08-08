@@ -1,13 +1,13 @@
-package com.meeleet.learn.auth.security.config;
+package com.meeleet.cloud.auth.security.config;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
-import com.meeleet.learn.auth.security.core.userdetails.member.MemberUserDetailsServiceImpl;
-import com.meeleet.learn.auth.security.core.userdetails.sysuser.SysUserDetailsServiceImpl;
-import com.meeleet.learn.auth.security.extension.mobile.SmsCodeAuthenticationProvider;
-import com.meeleet.learn.auth.security.extension.password.DaoxAuthenticationProvider;
-import com.meeleet.learn.auth.security.extension.wechat.WechatAuthenticationProvider;
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.auth.security.core.userdetails.member.MemberUserDetailsServiceImpl;
+import com.meeleet.cloud.auth.security.core.userdetails.sysuser.SysUserDetailsServiceImpl;
+import com.meeleet.cloud.auth.security.extension.mobile.SmsCodeAuthenticationProvider;
+import com.meeleet.cloud.auth.security.extension.password.DaoxAuthenticationProvider;
+import com.meeleet.cloud.auth.security.extension.wechat.WechatAuthenticationProvider;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

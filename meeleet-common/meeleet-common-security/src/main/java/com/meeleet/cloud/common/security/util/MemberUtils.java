@@ -1,7 +1,7 @@
-package com.meeleet.learn.common.security.util;
+package com.meeleet.cloud.common.security.util;
 
 import cn.hutool.json.JSONObject;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 
 /**
  * @author jaychang

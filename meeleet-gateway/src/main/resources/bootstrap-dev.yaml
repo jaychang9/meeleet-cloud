@@ -21,7 +21,7 @@ spring:
 
 logging:
   level:
-    com.meeleet.learn.gateway: debug
+    com.meeleet.cloud.gateway: debug
 
 springdoc:
   swagger-ui:

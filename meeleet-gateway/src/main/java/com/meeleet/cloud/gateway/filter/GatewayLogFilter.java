@@ -1,4 +1,4 @@
-package com.meeleet.learn.gateway.filter;
+package com.meeleet.cloud.gateway.filter;
 
 import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
 @ConditionalOnProperty(
         prefix = "log",
         name = {"enabled"},
-        havingValue = "true", // learn-gateway.yaml设置 log.enabled=false
+        havingValue = "true", // log.enabled=false
         matchIfMissing = true  // true表示缺少log.enabled属性也会加载该bean
 )
 @Component

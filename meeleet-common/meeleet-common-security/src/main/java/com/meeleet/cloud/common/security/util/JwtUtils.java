@@ -1,9 +1,9 @@
-package com.meeleet.learn.common.security.util;
+package com.meeleet.cloud.common.security.util;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;

@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.base;
+package com.meeleet.cloud.common.base;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;

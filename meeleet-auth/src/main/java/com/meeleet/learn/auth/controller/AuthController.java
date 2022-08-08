@@ -1,11 +1,11 @@
-package com.meeleet.learn.auth.controller;
+package com.meeleet.cloud.auth.controller;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.meeleet.learn.common.result.Result;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
-import com.meeleet.learn.common.security.util.JwtUtils;
-import com.meeleet.learn.common.security.util.RequestUtils;
+import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.security.util.JwtUtils;
+import com.meeleet.cloud.common.security.util.RequestUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -43,7 +43,7 @@ public class AuthController {
     /**
      * 由于这里覆盖了org.springframework.security.oauth2.provider.endpoint.TokenEndpoint#postAccessToken(java.security.Principal, java.util.Map)
      * 所以使得org.springframework.security.oauth2.provider.endpoint.AbstractEndpoint#providerExceptionHandler 异常处理失效
-     * 因此我们定义了@see com.meeleet.learn.auth.common.exception.AuthExceptionHandler来处理认证异常
+     * 因此我们定义了@see com.meeleet.cloud.auth.common.exception.AuthExceptionHandler来处理认证异常
      * 但要注意的是客户端认证是通过filter的，所以不可能通过AuthExceptionHandler来处理客户端认证异常
      * @param principal
      * @param parameters

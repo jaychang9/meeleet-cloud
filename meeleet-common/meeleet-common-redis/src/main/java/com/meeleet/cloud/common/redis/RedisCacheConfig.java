@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.redis;
+package com.meeleet.cloud.common.redis;
 
 import org.springframework.boot.autoconfigure.cache.CacheProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -1,9 +1,9 @@
-package com.meeleet.learn.common.security.util;
+package com.meeleet.cloud.common.security.util;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.json.JSONObject;
-import com.meeleet.learn.common.constant.GlobalConstants;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.constant.GlobalConstants;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;

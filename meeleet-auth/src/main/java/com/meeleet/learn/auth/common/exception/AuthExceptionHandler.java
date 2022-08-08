@@ -1,7 +1,7 @@
-package com.meeleet.learn.auth.common.exception;
+package com.meeleet.cloud.auth.common.exception;
 
-import com.meeleet.learn.common.result.Result;
-import com.meeleet.learn.common.result.ResultCode;
+import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.result.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;

@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.pojo;
+package com.meeleet.cloud.common.base;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.result;
+package com.meeleet.cloud.common.result;
 
 /**
  * @author jaychang

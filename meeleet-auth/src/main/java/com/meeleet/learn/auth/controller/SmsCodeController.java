@@ -1,9 +1,9 @@
-package com.meeleet.learn.auth.controller;
+package com.meeleet.cloud.auth.controller;
 
 import cn.hutool.core.util.RandomUtil;
-import com.meeleet.learn.common.constant.StringConstant;
-import com.meeleet.learn.common.result.Result;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;

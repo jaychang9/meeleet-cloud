@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.proxy;
+package com.meeleet.cloud.common.proxy;
 
 
 import org.junit.jupiter.api.Test;

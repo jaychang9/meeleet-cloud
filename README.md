@@ -158,7 +158,7 @@ org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticatio
        运营端定义grant_type = operator_password
        定义多个Grant，再定义多个Provider
 方法2:  grant_type都一样，grant_type = password
-       参考com.meeleet.learn.auth.security.extension.refresh.PreAuthenticatedUserDetailsService
+       参考com.meeleet.cloud.auth.security.extension.refresh.PreAuthenticatedUserDetailsService
        根据不同client_id对应不同UserDetailService,定义一个UserDetailService代理类，代理不同client_id的UserDetailService
        姑且就叫这个UserDetailService代理为MultipleUserDetailService
        

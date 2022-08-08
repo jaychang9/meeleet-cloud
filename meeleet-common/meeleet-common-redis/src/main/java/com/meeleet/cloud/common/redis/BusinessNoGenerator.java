@@ -1,6 +1,6 @@
-package com.meeleet.learn.common.redis;
+package com.meeleet.cloud.common.redis;
 
-import com.meeleet.learn.common.redis.constant.RedisConstants;
+import com.meeleet.cloud.common.redis.constant.RedisConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;

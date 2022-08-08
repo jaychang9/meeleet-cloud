@@ -1,13 +1,13 @@
-package com.meeleet.learn.auth.security.extension.wechat;
+package com.meeleet.cloud.auth.security.extension.wechat;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
 import cn.hutool.core.bean.BeanUtil;
-import com.meeleet.learn.auth.security.core.userdetails.member.MemberUserDetails;
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
-import com.meeleet.learn.ums.pojo.dto.UmsMemberAuthInfoDTO;
+import com.meeleet.cloud.auth.security.core.userdetails.member.MemberUserDetails;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.ums.pojo.dto.UmsMemberAuthInfoDTO;
 import lombok.SneakyThrows;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;

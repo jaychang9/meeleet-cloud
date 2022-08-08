@@ -1,12 +1,12 @@
-package com.meeleet.learn.common.security.util;
+package com.meeleet.cloud.common.security.util;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.meeleet.learn.common.constant.StringConstant;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
-import com.meeleet.learn.common.security.enums.AuthenticationIdentityEnum;
+import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
 import com.nimbusds.jose.JWSObject;
 import lombok.Data;
 import lombok.SneakyThrows;

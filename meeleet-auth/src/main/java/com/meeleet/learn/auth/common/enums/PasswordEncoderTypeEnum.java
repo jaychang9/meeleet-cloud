@@ -1,4 +1,4 @@
-package com.meeleet.learn.auth.common.enums;
+package com.meeleet.cloud.auth.common.enums;
 
 import lombok.Getter;
 

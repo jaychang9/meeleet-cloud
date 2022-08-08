@@ -1,4 +1,4 @@
-package com.meeleet.learn.auth.config;
+package com.meeleet.cloud.auth.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;

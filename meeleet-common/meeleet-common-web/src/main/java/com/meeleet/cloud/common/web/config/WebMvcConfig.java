@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.web.config;
+package com.meeleet.cloud.common.web.config;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;

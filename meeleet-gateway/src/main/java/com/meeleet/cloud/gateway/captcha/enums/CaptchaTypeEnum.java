@@ -1,4 +1,4 @@
-package com.meeleet.learn.gateway.captcha.enums;
+package com.meeleet.cloud.gateway.captcha.enums;
 
 /**
  * 验证码类型枚举

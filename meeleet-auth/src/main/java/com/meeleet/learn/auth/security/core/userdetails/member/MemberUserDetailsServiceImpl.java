@@ -1,14 +1,14 @@
-package com.meeleet.learn.auth.security.core.userdetails.member;
+package com.meeleet.cloud.auth.security.core.userdetails.member;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
-import com.meeleet.learn.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.learn.common.constant.StringConstant;
-import com.meeleet.learn.common.result.ResultCode;
-import com.meeleet.learn.common.security.enums.AuthenticationIdentityEnum;
-import com.meeleet.learn.ums.pojo.dto.UmsMemberAuthInfoDTO;
-import com.meeleet.learn.ums.pojo.dto.UmsMemberDTO;
-import com.meeleet.learn.ums.rpc.IUmsMemberDubboService;
+import com.meeleet.cloud.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.result.ResultCode;
+import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
+import com.meeleet.cloud.ums.pojo.dto.UmsMemberAuthInfoDTO;
+import com.meeleet.cloud.ums.pojo.dto.UmsMemberDTO;
+import com.meeleet.cloud.ums.rpc.IUmsMemberDubboService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.DisabledException;

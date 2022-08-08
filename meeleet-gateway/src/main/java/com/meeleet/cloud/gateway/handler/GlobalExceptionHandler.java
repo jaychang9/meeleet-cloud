@@ -1,7 +1,7 @@
-package com.meeleet.learn.gateway.handler;
+package com.meeleet.cloud.gateway.handler;
 
 import cn.hutool.json.JSONUtil;
-import com.meeleet.learn.common.result.Result;
+import com.meeleet.cloud.common.result.Result;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.reactive.error.ErrorWebExceptionHandler;

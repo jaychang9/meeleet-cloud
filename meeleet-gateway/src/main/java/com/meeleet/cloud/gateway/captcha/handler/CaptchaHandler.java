@@ -1,11 +1,11 @@
-package com.meeleet.learn.gateway.captcha.handler;
+package com.meeleet.cloud.gateway.captcha.handler;
 
 import cn.hutool.core.util.IdUtil;
-import com.meeleet.learn.common.constant.StringConstant;
-import com.meeleet.learn.common.result.Result;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
-import com.meeleet.learn.gateway.captcha.enums.CaptchaTypeEnum;
-import com.meeleet.learn.gateway.component.captcha.component.CaptchaProducer;
+import com.meeleet.cloud.common.constant.StringConstant;
+import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.gateway.captcha.enums.CaptchaTypeEnum;
+import com.meeleet.cloud.gateway.component.captcha.component.CaptchaProducer;
 import com.wf.captcha.base.Captcha;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

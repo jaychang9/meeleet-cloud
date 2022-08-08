@@ -1,11 +1,11 @@
-package com.meeleet.learn.gateway.security;
+package com.meeleet.cloud.gateway.security;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.io.IoUtil;
-import com.meeleet.learn.common.result.ResultCode;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
-import com.meeleet.learn.gateway.util.ResponseUtils;
+import com.meeleet.cloud.common.result.ResultCode;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.gateway.util.ResponseUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.SneakyThrows;

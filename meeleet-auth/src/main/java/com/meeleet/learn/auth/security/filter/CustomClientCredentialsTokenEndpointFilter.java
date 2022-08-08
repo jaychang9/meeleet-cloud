@@ -1,6 +1,6 @@
-package com.meeleet.learn.auth.security.filter;
+package com.meeleet.cloud.auth.security.filter;
 
-import com.meeleet.learn.common.security.util.RequestUtils;
+import com.meeleet.cloud.common.security.util.RequestUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

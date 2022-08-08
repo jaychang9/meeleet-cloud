@@ -1,6 +1,6 @@
-package com.meeleet.learn.gateway;
+package com.meeleet.cloud.gateway;
 
-import com.meeleet.learn.common.redis.RedisConfig;
+import com.meeleet.cloud.common.redis.RedisConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

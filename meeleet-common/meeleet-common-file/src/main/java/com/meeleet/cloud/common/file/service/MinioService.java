@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.file.service;
+package com.meeleet.cloud.common.file.service;
 
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
@@ -6,7 +6,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
-import com.meeleet.learn.common.util.ImgUtils;
+import com.meeleet.cloud.common.util.ImgUtils;
 import io.minio.*;
 import io.minio.http.Method;
 import lombok.Setter;

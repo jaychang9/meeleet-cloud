@@ -1,7 +1,7 @@
-package com.meeleet.learn.auth;
+package com.meeleet.cloud.auth;
 
-import com.meeleet.learn.common.redis.RedisConfig;
-import com.meeleet.learn.common.web.exception.GlobalExceptionHandler;
+import com.meeleet.cloud.common.redis.RedisConfig;
+import com.meeleet.cloud.common.web.exception.GlobalExceptionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;

@@ -1,4 +1,4 @@
-package com.meeleet.learn.auth.security.userdetails;
+package com.meeleet.cloud.auth.security.userdetails;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,7 +1,7 @@
-package com.meeleet.learn.common.file.controller;
+package com.meeleet.cloud.common.file.controller;
 
-import com.meeleet.learn.common.file.service.MinioService;
-import com.meeleet.learn.common.result.Result;
+import com.meeleet.cloud.common.file.service.MinioService;
+import com.meeleet.cloud.common.result.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
-package com.meeleet.learn.common.enums;
+package com.meeleet.cloud.common.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
-import com.meeleet.learn.common.base.IBaseEnum;
+import com.meeleet.cloud.common.base.IBaseEnum;
 import lombok.Getter;
 
 /**

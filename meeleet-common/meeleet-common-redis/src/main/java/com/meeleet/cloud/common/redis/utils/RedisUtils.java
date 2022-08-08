@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.redis.utils;
+package com.meeleet.cloud.common.redis.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.redis;
+package com.meeleet.cloud.common.redis;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

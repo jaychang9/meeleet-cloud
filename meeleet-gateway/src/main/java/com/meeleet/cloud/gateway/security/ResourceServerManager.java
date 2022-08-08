@@ -1,10 +1,10 @@
-package com.meeleet.learn.gateway.security;
+package com.meeleet.cloud.gateway.security;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.util.StrUtil;
-import com.meeleet.learn.common.constant.GlobalConstants;
-import com.meeleet.learn.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.constant.GlobalConstants;
+import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

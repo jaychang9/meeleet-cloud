@@ -1,10 +1,10 @@
-package com.meeleet.learn.common.web.exception;
+package com.meeleet.cloud.common.web.exception;
 
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.meeleet.learn.common.exception.BizException;
-import com.meeleet.learn.common.result.Result;
-import com.meeleet.learn.common.result.ResultCode;
+import com.meeleet.cloud.common.exception.BizException;
+import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.result.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;

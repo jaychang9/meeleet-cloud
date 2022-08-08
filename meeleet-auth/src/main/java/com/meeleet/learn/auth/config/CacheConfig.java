@@ -1,4 +1,4 @@
-package com.meeleet.learn.auth.config;
+package com.meeleet.cloud.auth.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;

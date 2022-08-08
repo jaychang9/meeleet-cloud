@@ -1,8 +1,8 @@
-package com.meeleet.learn.gateway.util;
+package com.meeleet.cloud.gateway.util;
 
 import cn.hutool.json.JSONUtil;
-import com.meeleet.learn.common.result.Result;
-import com.meeleet.learn.common.result.ResultCode;
+import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.result.ResultCode;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.HttpHeaders;

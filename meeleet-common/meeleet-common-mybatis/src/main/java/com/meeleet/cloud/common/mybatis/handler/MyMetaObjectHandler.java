@@ -1,4 +1,4 @@
-package com.meeleet.learn.common.mybatis.handler;
+package com.meeleet.cloud.common.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
