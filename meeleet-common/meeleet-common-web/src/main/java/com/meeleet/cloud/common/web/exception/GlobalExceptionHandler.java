@@ -16,6 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -202,8 +205,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BindException.class)
     public <T> R<T> handleException(BindException e) {
         log.warn("参数校验异常", e.getMessage());
-        String msg = e.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining("；"));
-        return R.failed(ResultCode.PARAM_ERROR, msg);
+        return wrapperBindingResult(e.getBindingResult());
     }
 
     /**
@@ -217,8 +219,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public <T> R<T> handleException(ConstraintViolationException e) {
         log.warn("参数校验异常", e.getMessage());
-        String msg = e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining("；"));
-        return R.failed(ResultCode.PARAM_ERROR, msg);
+        StringBuilder msg = new StringBuilder();
+        for (ConstraintViolation error : e.getConstraintViolations()) {
+            String queryParamPath = error.getPropertyPath().toString();
+            String queryParam = queryParamPath.contains(".") ? queryParamPath.substring(queryParamPath.indexOf(".") + 1) : queryParamPath;
+            msg.append(queryParam).append(":").append(error.getMessage());
+        }
+        return R.failed(ResultCode.PARAM_ERROR, msg.substring(0,msg.length() - 1));
     }
 
     /**
@@ -232,8 +239,25 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public <T> R<T> handleException(MethodArgumentNotValidException e) {
         log.warn("参数校验异常", e);
-        String msg = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining("；"));
-        return R.failed(ResultCode.PARAM_ERROR, msg);
+        return wrapperBindingResult(e.getBindingResult());
+    }
+
+    /**
+     * 包装绑定异常结果
+     *
+     * @param bindingResult 绑定结果
+     * @return 异常结果
+     */
+    private R wrapperBindingResult(BindingResult bindingResult) {
+        StringBuilder msg = new StringBuilder();
+        for (ObjectError error : bindingResult.getAllErrors()) {
+            if (error instanceof FieldError) {
+                msg.append(((FieldError) error).getField()).append(":");
+            }
+            msg.append(error.getDefaultMessage() == null ? "" : error.getDefaultMessage());
+            msg.append(";");
+        }
+        return R.failed(ResultCode.PARAM_ERROR, msg.substring(0,msg.length() - 1));
     }
 
     /**
@@ -289,7 +313,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(CompletionException.class)
     public <T> R<T> handleException(CompletionException e) {
-        log.error(e.getMessage(),e);
+        log.error(e.getMessage(), e);
         if (ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
