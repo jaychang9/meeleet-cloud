@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.base;
+package com.meeleet.cloud.common.pojo.query;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

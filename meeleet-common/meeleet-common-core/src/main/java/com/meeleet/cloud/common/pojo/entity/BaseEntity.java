@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.base;
+package com.meeleet.cloud.common.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

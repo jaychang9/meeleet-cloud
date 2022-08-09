@@ -2,6 +2,7 @@ package com.meeleet.cloud.common.exception;
 
 
 import com.meeleet.cloud.common.result.IResultCode;
+import com.meeleet.cloud.common.result.ResultCode;
 
 /**
  * <p>异常基类</p>
@@ -21,6 +22,21 @@ public class BaseException extends RuntimeException {
      * 异常消息参数
      */
     protected Object[] args;
+
+    public BaseException(String message) {
+        super(message);
+        this.resultCode = new IResultCode() {
+            @Override
+            public String getCode() {
+                return ResultCode.SYSTEM_EXECUTION_ERROR.getCode();
+            }
+
+            @Override
+            public String getMessage() {
+                return null;
+            }
+        }
+    }
 
     public BaseException(IResultCode resultCode) {
         super(resultCode.getMessage());

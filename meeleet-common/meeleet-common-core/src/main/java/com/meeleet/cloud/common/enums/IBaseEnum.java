@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.base;
+package com.meeleet.cloud.common.enums;
 
 
 import cn.hutool.core.util.ObjectUtil;

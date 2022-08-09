@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.pojo;
+package com.meeleet.cloud.common.pojo.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,7 +16,7 @@ import java.util.List;
 @Schema(description = "Select选择器默认Option属性")
 @Data
 @NoArgsConstructor
-public class OptionVO<T> implements Serializable {
+public class OptionVO<T> extends BaseVO implements Serializable {
 
     private static final long serialVersionUID = -5925150404241675596L;
 

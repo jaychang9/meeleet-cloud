@@ -1,10 +1,12 @@
 package com.meeleet.cloud.common.exception;
 
 import com.meeleet.cloud.common.result.IResultCode;
+import com.meeleet.cloud.common.result.ResultCode;
 import lombok.Getter;
 
 /**
  * 业务异常类
+ *
  * @author jaychang
  */
 @Getter
@@ -14,6 +16,10 @@ public class BusinessException extends BaseException {
 
     public BusinessException(IResultCode resultCode) {
         super(resultCode);
+    }
+
+    public BusinessException(String message) {
+        this(ResultCode.SYSTEM_EXECUTION_ERROR.getCode(),message);
     }
 
     public BusinessException(String code, String message) {

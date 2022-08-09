@@ -1,5 +1,6 @@
 package com.meeleet.cloud.common.result;
 
+import com.meeleet.cloud.common.exception.assertion.CommonExceptionAssert;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,7 +12,7 @@ import java.io.Serializable;
  **/
 @Getter
 @AllArgsConstructor
-public enum ResultCode implements IResultCode, Serializable {
+public enum ResultCode implements CommonExceptionAssert, IResultCode, Serializable {
 
     SUCCESS("00000", "一切ok"),
 
@@ -42,14 +43,22 @@ public enum ResultCode implements IResultCode, Serializable {
     RESOURCE_NOT_FOUND("A0401", "请求资源不存在"),
     PARAM_IS_NULL("A0410", "请求必填参数为空"),
 
+    DATE_NOT_NULL("A0420", "日期不能为空"),
+    DATETIME_NOT_NULL("A0421", "时间不能为空"),
+    DATE_PATTERN_MISMATCH("A0422", "日期[%s]与格式[%s]不匹配，无法解析"),
+    PATTERN_NOT_NULL("A0423", "日期格式不能为空"),
+    PATTERN_INVALID("A0424", "日期格式[%s]无法识别"),
+
+
+
     USER_UPLOAD_FILE_ERROR("A0700", "用户上传文件异常"),
     USER_UPLOAD_FILE_TYPE_NOT_MATCH("A0701", "用户上传文件类型不匹配"),
     USER_UPLOAD_FILE_SIZE_EXCEEDS("A0702", "用户上传文件太大"),
     USER_UPLOAD_IMAGE_SIZE_EXCEEDS("A0703", "用户上传图片太大"),
 
-    SYSTEM_EXECUTION_ERROR("B0001", "系统执行出错"),
+    SYSTEM_EXECUTION_ERROR("B0001", "系统繁忙，请稍后再试"),
     SYSTEM_EXECUTION_TIMEOUT("B0100", "系统执行超时"),
-    SYSTEM_ORDER_PROCESSING_TIMEOUT("B0100", "系统订单处理超时"),
+    SYSTEM_ORDER_PROCESSING_TIMEOUT("B0101", "系统订单处理超时"),
 
     SYSTEM_DISASTER_RECOVERY_TRIGGER("B0200", "系统容灾功能被出发"),
     FLOW_LIMITING("B0210", "系统限流"),
@@ -89,7 +98,7 @@ public enum ResultCode implements IResultCode, Serializable {
     }
 
 
-    public static ResultCode getValue(String code){
+    public static ResultCode getValue(String code) {
         for (ResultCode value : values()) {
             if (value.getCode().equals(code)) {
                 return value;

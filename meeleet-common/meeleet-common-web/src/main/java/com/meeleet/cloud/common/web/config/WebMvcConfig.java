@@ -1,9 +1,14 @@
 package com.meeleet.cloud.common.web.config;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonTokenId;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.meeleet.cloud.common.util.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.HibernateValidator;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
@@ -17,14 +22,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.TimeZone;
 
 @Configuration
 @Slf4j
 public class WebMvcConfig implements WebMvcConfigurer {
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
@@ -39,8 +49,117 @@ public class WebMvcConfig implements WebMvcConfigurer {
         simpleModule.addSerializer(BigInteger.class, ToStringSerializer.instance);
         objectMapper.registerModule(simpleModule);
 
+        // 处理序列化后的1.8的日期时间格式
+        JavaTimeModule javaTimeModule = new JavaTimeModule();
+        javaTimeModule.addSerializer(LocalDateTime.class, new LocalDateTimeSerializer());
+        javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer());
+        javaTimeModule.addSerializer(LocalTime.class, new LocalTimeSerializer());
+        javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer());
+        javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer());
+        javaTimeModule.addDeserializer(LocalTime.class, new LocalTimeDeserializer());
+        objectMapper.registerModule(javaTimeModule);
+
         jackson2HttpMessageConverter.setObjectMapper(objectMapper);
         converters.add(0, jackson2HttpMessageConverter);
+    }
+
+
+    public class LocalDateTimeSerializer extends JsonSerializer<LocalDateTime> {
+
+        @Override
+        public void serialize(LocalDateTime value,
+                              JsonGenerator jsonGenerator,
+                              SerializerProvider provider)
+                throws IOException {
+            if (value == null) {
+                jsonGenerator.writeNull();
+            } else {
+                jsonGenerator.writeNumber(DateUtils.toMilli(value));
+            }
+        }
+    }
+
+    public class LocalDateSerializer extends JsonSerializer<LocalDate> {
+
+        @Override
+        public void serialize(LocalDate value,
+                              JsonGenerator jsonGenerator,
+                              SerializerProvider provider)
+                throws IOException {
+            if (value == null) {
+                jsonGenerator.writeNull();
+            } else {
+                jsonGenerator.writeNumber(DateUtils.toMilli(value));
+            }
+        }
+    }
+
+    public class LocalTimeSerializer extends JsonSerializer<LocalTime> {
+
+        @Override
+        public void serialize(LocalTime value,
+                              JsonGenerator jsonGenerator,
+                              SerializerProvider provider)
+                throws IOException {
+            if (value == null) {
+                jsonGenerator.writeNull();
+            } else {
+                jsonGenerator.writeNumber(DateUtils.toMilli(value));
+            }
+        }
+    }
+
+    public class LocalDateTimeDeserializer extends JsonDeserializer<LocalDateTime> {
+
+
+        @Override
+        public LocalDateTime deserialize(JsonParser parser, DeserializationContext deserializationContext)
+                throws IOException, JsonProcessingException {
+            if (parser.hasTokenId(JsonTokenId.ID_NUMBER_INT)) {
+                String string = parser.getText().trim();
+                if (string.length() == 0) {
+                    return null;
+                }
+
+                long timestamp = Long.parseLong(string);
+                return DateUtils.toLocalDateTime(timestamp);
+            }
+            return null;
+        }
+    }
+
+    public class LocalDateDeserializer extends JsonDeserializer<LocalDate> {
+        @Override
+        public LocalDate deserialize(JsonParser parser, DeserializationContext deserializationContext)
+                throws IOException, JsonProcessingException {
+            if (parser.hasTokenId(JsonTokenId.ID_NUMBER_INT)) {
+                String string = parser.getText().trim();
+                if (string.length() == 0) {
+                    return null;
+                }
+
+                long timestamp = Long.parseLong(string);
+                return DateUtils.toLocalDate(timestamp);
+            }
+            return null;
+        }
+    }
+
+    public class LocalTimeDeserializer extends JsonDeserializer<LocalTime> {
+        @Override
+        public LocalTime deserialize(JsonParser parser, DeserializationContext deserializationContext)
+                throws IOException, JsonProcessingException {
+            if (parser.hasTokenId(JsonTokenId.ID_NUMBER_INT)) {
+                String string = parser.getText().trim();
+                if (string.length() == 0) {
+                    return null;
+                }
+
+                long timestamp = Long.parseLong(string);
+                return DateUtils.toLocalTime(timestamp);
+            }
+            return null;
+        }
     }
 
     @Bean
