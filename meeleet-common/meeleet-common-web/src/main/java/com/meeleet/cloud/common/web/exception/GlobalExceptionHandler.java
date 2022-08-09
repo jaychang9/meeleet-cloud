@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.validation.BindException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingPathVariableException;
@@ -110,10 +111,10 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public <T> R<T> handleException(HttpMessageNotReadableException e) {
-        log.error("请求内容不可读", e);
-        return R.failed(ResultCode.REQUEST_CONTENT_NOT_READABLE, getMessage(ResultCode.REQUEST_CONTENT_NOT_READABLE));
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    public <T> R<T> handleException(HttpMediaTypeNotSupportedException e) {
+        log.error("请求头content-type不支持", e);
+        return R.failed(ResultCode.REQUEST_CONTENT_TYPE_NOT_SUPPORTED, getMessage(ResultCode.REQUEST_CONTENT_TYPE_NOT_SUPPORTED));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -134,18 +135,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(TypeMismatchException.class)
     public <T> R<T> handleException(TypeMismatchException e) {
         log.error("参数类型不匹配", e);
-        return R.failed(ResultCode.PARAM_ERROR);
+        return R.failed(ResultCode.REQUEST_PARAM_MISMATCH);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(HttpMessageNotWritableException.class)
-    public <T> R<T> handleException(HttpMessageNotWritableException e) {
-        log.error("返回结果序列化异常", e);
-        if (ENV_PROD.equals(profile)) {
-            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
-            return R.failed(message);
-        }
-        return R.failed(e.getMessage());
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public <T> R<T> handleException(HttpMessageNotReadableException e) {
+        log.error("请求内容不可读", e);
+        return R.failed(ResultCode.REQUEST_CONTENT_NOT_READABLE, getMessage(ResultCode.REQUEST_CONTENT_NOT_READABLE));
     }
 
     /**
