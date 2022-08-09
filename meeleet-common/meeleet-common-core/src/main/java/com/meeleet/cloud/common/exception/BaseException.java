@@ -33,9 +33,9 @@ public class BaseException extends RuntimeException {
 
             @Override
             public String getMessage() {
-                return null;
+                return message;
             }
-        }
+        };
     }
 
     public BaseException(IResultCode resultCode) {
