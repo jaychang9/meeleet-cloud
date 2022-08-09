@@ -96,7 +96,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)
     public <T> R<T> handleException(BindException e) {
-        log.warn("BindException:{}", e.getMessage());
+        log.warn("参数校验异常", e.getMessage());
         String msg = e.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining("；"));
         return R.failed(ResultCode.PARAM_ERROR, msg);
     }
@@ -111,7 +111,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException.class)
     public <T> R<T> handleException(ConstraintViolationException e) {
-        log.warn("ConstraintViolationException:{}", e.getMessage());
+        log.warn("参数校验异常", e.getMessage());
         String msg = e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining("；"));
         return R.failed(ResultCode.PARAM_ERROR, msg);
     }
@@ -126,7 +126,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public <T> R<T> handleException(MethodArgumentNotValidException e) {
-        log.warn("MethodArgumentNotValidException:{}", e.getMessage());
+        log.warn("参数校验异常", e);
         String msg = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining("；"));
         return R.failed(ResultCode.PARAM_ERROR, msg);
     }
@@ -134,7 +134,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NoHandlerFoundException.class)
     public <T> R<T> handleException(NoHandlerFoundException e) {
-        log.error(e.getMessage(), e);
+        log.error("未找到匹配的请求处理器", e);
         return R.failed(ResultCode.RESOURCE_NOT_FOUND, getMessage(ResultCode.RESOURCE_NOT_FOUND));
     }
 
@@ -144,7 +144,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public <T> R<T> handleException(MissingServletRequestParameterException e) {
-        log.error(e.getMessage(), e);
+        log.error("缺少请求参数", e);
         return R.failed(ResultCode.PARAM_IS_NULL, getMessage(ResultCode.PARAM_IS_NULL));
     }
 
@@ -154,7 +154,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public <T> R<T> handleException(MethodArgumentTypeMismatchException e) {
-        log.error(e.getMessage(), e);
+        log.error("参数类型不匹配", e);
         return R.failed(ResultCode.PARAM_ERROR, getMessage(ResultCode.PARAM_ERROR));
     }
 
@@ -174,7 +174,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ServletException.class)
     public <T> R<T> handleException(ServletException e) {
-        log.error("ServletException:{}", e.getMessage(), e);
+        log.error("Servlet异常", e.getMessage(), e);
         if (ENV_PROD.equals(profile)) {
             // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
@@ -228,7 +228,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(TypeMismatchException.class)
     public <T> R<T> handleException(TypeMismatchException e) {
-        log.error("类型不匹配:{}", e.getMessage(), e);
+        log.error("类型不匹配", e);
         if (ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
@@ -239,7 +239,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler(SQLSyntaxErrorException.class)
     public <T> R<T> handleException(SQLSyntaxErrorException e) {
-        log.error(e.getMessage(), e);
+        log.error("SQL语法错误", e);
         if (ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
@@ -272,13 +272,13 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BusinessException.class)
     public <T> R<T> handleException(BusinessException e) {
-        return R.failed(e.getResultCode(),getMessage(e));
+        return R.failed(e.getResultCode(), getMessage(e));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BaseException.class)
     public <T> R<T> handleException(BaseException e) {
-        return R.failed(e.getResultCode(),getMessage(e));
+        return R.failed(e.getResultCode(), getMessage(e));
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
