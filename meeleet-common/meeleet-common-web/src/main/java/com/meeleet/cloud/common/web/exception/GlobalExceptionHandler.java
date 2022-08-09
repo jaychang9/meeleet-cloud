@@ -11,7 +11,6 @@ import com.meeleet.cloud.common.result.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
@@ -225,7 +224,7 @@ public class GlobalExceptionHandler {
             String queryParam = queryParamPath.contains(".") ? queryParamPath.substring(queryParamPath.indexOf(".") + 1) : queryParamPath;
             msg.append(queryParam).append(":").append(error.getMessage());
         }
-        return R.failed(ResultCode.PARAM_ERROR, msg.substring(0,msg.length() - 1));
+        return R.failed(ResultCode.PARAM_ERROR, msg.substring(0, msg.length() - 1));
     }
 
     /**
@@ -251,13 +250,15 @@ public class GlobalExceptionHandler {
     private R wrapperBindingResult(BindingResult bindingResult) {
         StringBuilder msg = new StringBuilder();
         for (ObjectError error : bindingResult.getAllErrors()) {
+            if (msg.length() > 0) {
+                msg.append(";");
+            }
             if (error instanceof FieldError) {
                 msg.append(((FieldError) error).getField()).append(":");
             }
             msg.append(error.getDefaultMessage() == null ? "" : error.getDefaultMessage());
-            msg.append(";");
         }
-        return R.failed(ResultCode.PARAM_ERROR, msg.substring(0,msg.length() - 1));
+        return R.failed(ResultCode.PARAM_ERROR, msg.toString());
     }
 
     /**
