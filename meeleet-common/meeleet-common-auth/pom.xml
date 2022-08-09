@@ -80,11 +80,12 @@
         </dependency>
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-common-redis</artifactId>
+            <artifactId>meeleet-common-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-common-web</artifactId>
+            <artifactId>meeleet-redis</artifactId>
         </dependency>
 
         <!-- Unit Test -->

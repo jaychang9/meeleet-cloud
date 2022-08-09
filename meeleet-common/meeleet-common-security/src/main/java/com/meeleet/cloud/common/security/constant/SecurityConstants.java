@@ -3,6 +3,10 @@ package com.meeleet.cloud.common.security.constant;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Security常量
+ * @author jaychang
+ */
 public interface SecurityConstants {
 
     /**
@@ -112,12 +116,12 @@ public interface SecurityConstants {
     /**
      * 线上环境放行的请求路径
      */
-    List<String> PROD_PERMIT_PATHS = Arrays.asList("/learn-lab", "/app-api", "/learn-auth/oauth/logout");
+    List<String> PROD_PERMIT_PATHS = Arrays.asList("/mall-lab", "/app-api", "/mall-auth/oauth/logout");
 
     /**
      * 线上环境禁止的请求路径
      */
-    List<String> PROD_FORBID_PATHS = Arrays.asList("/learn-admin/api/v1/menus");
+    List<String> PROD_FORBID_PATHS = Arrays.asList("/mall-admin/api/v1/menus");
 
     /**
      * 线上环境禁止方法

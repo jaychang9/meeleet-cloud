@@ -13,4 +13,9 @@
   <artifactId>meeleet-starters</artifactId>
   <name>Meeleet Spring Boot Starters</name>
   <description>Meeleet Spring Boot Starters</description>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>meeleet-file-spring-boot-starter</module>
+  </modules>
 </project>

@@ -2,7 +2,7 @@ package com.meeleet.cloud.common.auth.controller;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.meeleet.cloud.common.result.Result;
+import com.meeleet.cloud.common.result.R;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import com.meeleet.cloud.common.security.util.JwtUtils;
 import com.meeleet.cloud.common.security.util.RequestUtils;
@@ -60,7 +60,7 @@ public class AuthController {
             @Parameter(name = "password", schema = @Schema(defaultValue = "123456"), description = "用户密码")
     })
     @PostMapping("/token")
-    public Result<OAuth2AccessToken> postAccessToken(
+    public R<OAuth2AccessToken> postAccessToken(
             @Parameter(hidden = true) Principal principal,
             @Parameter(hidden = true) @RequestParam Map<String, String> parameters
     ) throws HttpRequestMethodNotSupportedException {
@@ -83,7 +83,7 @@ public class AuthController {
         parameters.putIfAbsent(SecurityConstants.CLIENT_SECRET_KEY,clientAuthRequest.getClientSecret());
 
         OAuth2AccessToken accessToken = tokenEndpoint.postAccessToken(principal, parameters).getBody();
-        return Result.success(accessToken);
+        return R.success(accessToken);
     }
 
     @Operation(description = "校验Token")
@@ -92,9 +92,9 @@ public class AuthController {
             @Parameter(name = "token", description = "访问令牌(accessToken)", required = true, in = ParameterIn.QUERY, schema = @Schema(type = "string")),
     })
     @PostMapping("/check_token")
-    public Result checkToken(@RequestParam("token") String token) {
+    public R checkToken(@RequestParam("token") String token) {
         Map<String, ?> checkResult = checkTokenEndpoint.checkToken(token);
-        return Result.success(checkResult);
+        return R.success(checkResult);
     }
 
     @Operation(description = "获取Token公钥")
@@ -102,14 +102,14 @@ public class AuthController {
             @Parameter(name = "Authorization", description = "客户端Basic认证: base64(client_id:client_secret)", required = true, in = ParameterIn.HEADER, schema = @Schema(type = "string")),
     })
     @GetMapping("/token_key")
-    public Result tokenKey() {
+    public R tokenKey() {
         Map<String, String> tokenKeyResult = tokenKeyEndpoint.getKey(null);
-        return Result.success(tokenKeyResult);
+        return R.success(tokenKeyResult);
     }
 
     @Operation(description = "注销")
     @PostMapping("/logout")
-    public Result logout() {
+    public R logout() {
         // 必须网关转发到这个接口，因为网关全局过滤器会将jti塞到请求头里
         JSONObject payload = JwtUtils.getJwtPayload();
         String jti = payload.getStr(SecurityConstants.JWT_JTI); // JWT唯一标识
@@ -122,7 +122,7 @@ public class AuthController {
         } else { // token 永不过期则永久加入黑名单
             redisTemplate.opsForValue().set(SecurityConstants.TOKEN_BLACKLIST_PREFIX + jti, null);
         }
-        return Result.success("注销成功");
+        return R.success("注销成功");
     }
 
 //    网关项目本地取公钥

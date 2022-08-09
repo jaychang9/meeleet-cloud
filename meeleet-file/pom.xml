@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.meeleet.cloud</groupId>
-        <artifactId>meeleet-common</artifactId>
+        <artifactId>meeleet-parent</artifactId>
+        <relativePath>../meeleet-parent</relativePath>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>meeleet-common-file</artifactId>
-    <name>Meeleet Common File</name>
-    <description>Meeleet Common File</description>
+    <artifactId>meeleet-file</artifactId>
+    <name>Meeleet File</name>
+    <description>Meeleet File</description>
 
     <dependencies>
 

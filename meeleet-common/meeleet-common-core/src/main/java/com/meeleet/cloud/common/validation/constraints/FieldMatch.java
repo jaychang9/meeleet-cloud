@@ -1,6 +1,6 @@
 package com.meeleet.cloud.common.validation.constraints;
 
-import com.meeleet.common.validation.constraints.impl.FieldMatchValidator;
+import com.meeleet.cloud.common.validation.constraints.impl.FieldMatchValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

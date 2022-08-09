@@ -3,7 +3,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.meeleet.cloud</groupId>
         <artifactId>meeleet-parent</artifactId>
@@ -12,14 +11,12 @@
     </parent>
 
     <artifactId>meeleet-common</artifactId>
-
+    <name>Meeleet Common</name>
+    <description>Meeleet Common</description>
     <packaging>pom</packaging>
 
     <modules>
         <module>meeleet-common-core</module>
-        <module>meeleet-common-redis</module>
-        <module>meeleet-common-mybatis</module>
-        <module>meeleet-common-file</module>
         <module>meeleet-common-security</module>
         <module>meeleet-common-auth</module>
         <module>meeleet-common-web</module>

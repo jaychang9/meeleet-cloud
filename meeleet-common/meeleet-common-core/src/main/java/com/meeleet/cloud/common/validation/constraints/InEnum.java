@@ -1,4 +1,5 @@
 package com.meeleet.cloud.common.validation.constraints;
+
 import com.meeleet.cloud.common.validation.IntArrayValuable;
 import com.meeleet.cloud.common.validation.constraints.impl.InEnumValidator;
 
@@ -35,7 +36,7 @@ public @interface InEnum {
     Class<? extends Payload>[] payload() default {};
 
     /**
-     *  Defines several {@code @InEnum} constraints on the same element.
+     * Defines several {@code @InEnum} constraints on the same element.
      */
     @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
     @Retention(RetentionPolicy.RUNTIME)

@@ -1,6 +1,6 @@
 package com.meeleet.cloud.common.security.enums;
 
-import com.meeleet.cloud.common.base.IBaseEnum;
+import com.meeleet.cloud.common.enums.IBaseEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

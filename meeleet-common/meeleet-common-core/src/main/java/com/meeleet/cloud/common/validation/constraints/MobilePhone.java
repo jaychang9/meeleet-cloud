@@ -1,7 +1,6 @@
 	package com.meeleet.cloud.common.validation.constraints;
 
-import com.meeleet.common.validation.constraints.impl.MobilePhoneValidator;
-
+import com.meeleet.cloud.common.validation.constraints.impl.MobilePhoneValidator;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;

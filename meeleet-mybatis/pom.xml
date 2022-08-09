@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.meeleet.cloud</groupId>
-        <artifactId>meeleet-common</artifactId>
+        <artifactId>meeleet-parent</artifactId>
+        <relativePath>../meeleet-parent</relativePath>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>meeleet-common-mybatis</artifactId>
-    <name>Meeleet Common Mybatis</name>
-    <description>Meeleet Common Mybatis</description>
+    <artifactId>meeleet-mybatis</artifactId>
+    <name>Meeleet Mybatis</name>
+    <description>Meeleet Mybatis</description>
 
     <dependencies>
         <dependency>
