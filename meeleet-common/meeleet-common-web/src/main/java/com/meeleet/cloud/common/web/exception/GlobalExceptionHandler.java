@@ -14,13 +14,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.validation.BindException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -93,6 +95,74 @@ public class GlobalExceptionHandler {
         return message;
     }
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public <T> R<T> handleException(NoHandlerFoundException e) {
+        log.error("未找到匹配的请求处理器", e);
+        return R.failed(ResultCode.RESOURCE_NOT_FOUND, getMessage(ResultCode.RESOURCE_NOT_FOUND));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    public <T> R<T> handleException(HttpRequestMethodNotSupportedException e) {
+        log.error("请求方法不支持", e);
+        return R.failed(ResultCode.REQUEST_METHOD_NOT_SUPPORTED, getMessage(ResultCode.REQUEST_METHOD_NOT_SUPPORTED));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public <T> R<T> handleException(HttpMessageNotReadableException e) {
+        log.error("请求内容不可读", e);
+        return R.failed(ResultCode.REQUEST_CONTENT_NOT_READABLE, getMessage(ResultCode.REQUEST_CONTENT_NOT_READABLE));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MissingPathVariableException.class)
+    public <T> R<T> handleException(MissingPathVariableException e) {
+        log.error("缺少请求路径参数", e);
+        return R.failed(ResultCode.REQUEST_PATH_PARAM_IS_BLANK, getMessage(ResultCode.REQUEST_PATH_PARAM_IS_BLANK));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public <T> R<T> handleException(MissingServletRequestParameterException e) {
+        log.error("缺少请求参数", e);
+        return R.failed(ResultCode.PARAM_IS_NULL, getMessage(ResultCode.PARAM_IS_NULL));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(TypeMismatchException.class)
+    public <T> R<T> handleException(TypeMismatchException e) {
+        log.error("参数类型不匹配", e);
+        return R.failed(ResultCode.PARAM_ERROR);
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(HttpMessageNotWritableException.class)
+    public <T> R<T> handleException(HttpMessageNotWritableException e) {
+        log.error("返回结果序列化异常", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
+        return R.failed(e.getMessage());
+    }
+
+    /**
+     * ServletException
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ServletException.class)
+    public <T> R<T> handleException(ServletException e) {
+        log.error("Servlet异常", e.getMessage(), e);
+        if (ENV_PROD.equals(profile)) {
+            // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
+        return R.failed(e.getMessage());
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)
     public <T> R<T> handleException(BindException e) {
@@ -131,33 +201,6 @@ public class GlobalExceptionHandler {
         return R.failed(ResultCode.PARAM_ERROR, msg);
     }
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(NoHandlerFoundException.class)
-    public <T> R<T> handleException(NoHandlerFoundException e) {
-        log.error("未找到匹配的请求处理器", e);
-        return R.failed(ResultCode.RESOURCE_NOT_FOUND, getMessage(ResultCode.RESOURCE_NOT_FOUND));
-    }
-
-    /**
-     * MissingServletRequestParameterException
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MissingServletRequestParameterException.class)
-    public <T> R<T> handleException(MissingServletRequestParameterException e) {
-        log.error("缺少请求参数", e);
-        return R.failed(ResultCode.PARAM_IS_NULL, getMessage(ResultCode.PARAM_IS_NULL));
-    }
-
-    /**
-     * MethodArgumentTypeMismatchException
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public <T> R<T> handleException(MethodArgumentTypeMismatchException e) {
-        log.error("参数类型不匹配", e);
-        return R.failed(ResultCode.PARAM_ERROR, getMessage(ResultCode.PARAM_ERROR));
-    }
-
     /**
      * MaxUploadSizeExceededException
      */
@@ -166,21 +209,6 @@ public class GlobalExceptionHandler {
     public <T> R<T> handleException(MaxUploadSizeExceededException e) {
         log.error("上传文件大小超出最大限制：{}", e.getMessage(), e);
         return R.failed(ResultCode.USER_UPLOAD_FILE_SIZE_EXCEEDS, getMessage(ResultCode.USER_UPLOAD_FILE_SIZE_EXCEEDS));
-    }
-
-    /**
-     * ServletException
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ServletException.class)
-    public <T> R<T> handleException(ServletException e) {
-        log.error("Servlet异常", e.getMessage(), e);
-        if (ENV_PROD.equals(profile)) {
-            // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
-            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
-            return R.failed(message);
-        }
-        return R.failed(e.getMessage());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -201,35 +229,6 @@ public class GlobalExceptionHandler {
         log.error("Json转换异常，异常原因：{}", e.getMessage(), e);
         if (ENV_PROD.equals(profile)) {
             // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
-            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
-            return R.failed(message);
-        }
-        return R.failed(e.getMessage());
-    }
-
-    /**
-     * HttpMessageNotReadableException
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public <T> R<T> handleException(HttpMessageNotReadableException e) {
-        log.error(e.getMessage(), e);
-        String errorMessage = "请求体不可为空";
-        Throwable cause = e.getCause();
-        if (cause != null) {
-            errorMessage = convertMessage(cause);
-        }
-        return R.failed(errorMessage);
-    }
-
-    /**
-     * TypeMismatchException
-     */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(TypeMismatchException.class)
-    public <T> R<T> handleException(TypeMismatchException e) {
-        log.error("类型不匹配", e);
-        if (ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }

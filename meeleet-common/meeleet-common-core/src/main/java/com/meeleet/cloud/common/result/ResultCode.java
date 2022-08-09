@@ -41,6 +41,12 @@ public enum ResultCode implements CommonExceptionAssert, IResultCode, Serializab
 
     PARAM_ERROR("A0400", "用户请求参数错误"),
     RESOURCE_NOT_FOUND("A0401", "请求资源不存在"),
+    REQUEST_METHOD_NOT_SUPPORTED("A0402", "请求方法不支持"),
+    REQUEST_CONTENT_TYPE_NOT_SUPPORTED("A0403", "请求头content-type不支持"),
+    REQUEST_PATH_PARAM_IS_BLANK("A0404", "请求路径参数不能为空"),
+    REQUEST_CONTENT_NOT_READABLE("A0405", "请求内容不可读"),
+
+
     PARAM_IS_NULL("A0410", "请求必填参数为空"),
 
     DATE_NOT_NULL("A0420", "日期不能为空"),
@@ -84,7 +90,8 @@ public enum ResultCode implements CommonExceptionAssert, IResultCode, Serializab
     DATABASE_COLUMN_NOT_EXIST("C0312", "列不存在"),
     DATABASE_DUPLICATE_COLUMN_NAME("C0321", "多表关联中存在多个相同名称的列"),
     DATABASE_DEADLOCK("C0331", "数据库死锁"),
-    DATABASE_PRIMARY_KEY_CONFLICT("C0341", "主键冲突");
+    DATABASE_PRIMARY_KEY_CONFLICT("C0341", "主键冲突"),
+    ;
 
     private final String code;
     private final String message;
