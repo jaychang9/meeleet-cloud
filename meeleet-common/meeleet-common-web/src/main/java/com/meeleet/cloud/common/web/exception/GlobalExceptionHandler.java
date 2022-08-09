@@ -100,6 +100,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public <T> R<T> handleException(NoHandlerFoundException e) {
         log.error("未找到匹配的请求处理器", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.RESOURCE_NOT_FOUND, getMessage(ResultCode.RESOURCE_NOT_FOUND));
     }
 
@@ -107,6 +111,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public <T> R<T> handleException(HttpRequestMethodNotSupportedException e) {
         log.error("请求方法不支持", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.REQUEST_METHOD_NOT_SUPPORTED, getMessage(ResultCode.REQUEST_METHOD_NOT_SUPPORTED));
     }
 
@@ -114,6 +122,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     public <T> R<T> handleException(HttpMediaTypeNotSupportedException e) {
         log.error("请求头content-type不支持", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.REQUEST_CONTENT_TYPE_NOT_SUPPORTED, getMessage(ResultCode.REQUEST_CONTENT_TYPE_NOT_SUPPORTED));
     }
 
@@ -121,6 +133,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingPathVariableException.class)
     public <T> R<T> handleException(MissingPathVariableException e) {
         log.error("缺少请求路径参数", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.REQUEST_PATH_PARAM_IS_BLANK, getMessage(ResultCode.REQUEST_PATH_PARAM_IS_BLANK));
     }
 
@@ -128,6 +144,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public <T> R<T> handleException(MissingServletRequestParameterException e) {
         log.error("缺少请求参数", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.PARAM_IS_NULL, getMessage(ResultCode.PARAM_IS_NULL));
     }
 
@@ -135,6 +155,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(TypeMismatchException.class)
     public <T> R<T> handleException(TypeMismatchException e) {
         log.error("参数类型不匹配", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.REQUEST_PARAM_MISMATCH);
     }
 
@@ -142,7 +166,22 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public <T> R<T> handleException(HttpMessageNotReadableException e) {
         log.error("请求内容不可读", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         return R.failed(ResultCode.REQUEST_CONTENT_NOT_READABLE, getMessage(ResultCode.REQUEST_CONTENT_NOT_READABLE));
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(HttpMessageNotWritableException.class)
+    public <T> R<T> handleException(HttpMessageNotWritableException e) {
+        log.error("返回结果序列化异常", e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
+        return R.failed(ResultCode.RESPONSE_RESULT_NOT_WRITABLE);
     }
 
     /**
@@ -153,7 +192,6 @@ public class GlobalExceptionHandler {
     public <T> R<T> handleException(ServletException e) {
         log.error("Servlet异常", e.getMessage(), e);
         if (ENV_PROD.equals(profile)) {
-            // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -251,6 +289,11 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(CompletionException.class)
     public <T> R<T> handleException(CompletionException e) {
+        log.error(e.getMessage(),e);
+        if (ENV_PROD.equals(profile)) {
+            String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
+            return R.failed(message);
+        }
         if (e.getMessage().startsWith("feign.FeignException")) {
             return R.failed("服务调用异常");
         }

@@ -46,6 +46,7 @@ public enum ResultCode implements CommonExceptionAssert, IResultCode, Serializab
     REQUEST_PATH_PARAM_IS_BLANK("A0404", "请求路径参数不能为空"),
     REQUEST_CONTENT_NOT_READABLE("A0405", "请求内容不可读"),
     REQUEST_PARAM_MISMATCH("A0406", "请求参数类型不匹配"),
+    RESPONSE_RESULT_NOT_WRITABLE("A0407", "响应结果序列化失败"),
 
 
     PARAM_IS_NULL("A0410", "请求必填参数为空"),
