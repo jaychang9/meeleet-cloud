@@ -1,7 +1,10 @@
 package com.meeleet.cloud.common.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
+import com.meeleet.cloud.common.validation.IntArrayValuable;
 import lombok.Getter;
+
+import java.util.Arrays;
 
 /**
  * 菜单类型枚举
@@ -9,7 +12,7 @@ import lombok.Getter;
  * @author jaychang
  */
 
-public enum MenuTypeEnum implements IBaseEnum<Integer> {
+public enum MenuTypeEnum implements IBaseEnum<Integer>, IntArrayValuable {
 
     NULL(0, null),
     MENU(1, "菜单"),
@@ -29,4 +32,10 @@ public enum MenuTypeEnum implements IBaseEnum<Integer> {
         this.label = label;
     }
 
+    public static final int[] ARRAYS = Arrays.stream(values()).mapToInt(MenuTypeEnum::getValue).toArray();
+
+    @Override
+    public int[] array() {
+        return ARRAYS;
+    }
 }

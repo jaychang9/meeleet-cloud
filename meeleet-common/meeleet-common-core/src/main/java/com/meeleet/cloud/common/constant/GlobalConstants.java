@@ -17,6 +17,12 @@ public class GlobalConstants {
      */
     public final static String ROOT_ROLE_CODE = "ROOT";
 
+
+    /**
+     * 生产环境
+     */
+    public final static String ENV_PROD = "prod";
+
     /**
      * [ {接口路径:[角色编码]},...]
      */

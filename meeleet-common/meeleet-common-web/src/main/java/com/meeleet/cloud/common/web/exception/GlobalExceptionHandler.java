@@ -2,6 +2,7 @@ package com.meeleet.cloud.common.web.exception;
 
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.meeleet.cloud.common.constant.GlobalConstants;
 import com.meeleet.cloud.common.exception.BaseException;
 import com.meeleet.cloud.common.exception.BusinessException;
 import com.meeleet.cloud.common.i18n.UnifiedMessageSource;
@@ -36,6 +37,7 @@ import java.sql.SQLSyntaxErrorException;
 import java.util.concurrent.CompletionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
  * 全局系统异常处理
  * 调整异常处理的HTTP状态码，丰富异常处理类型
@@ -47,11 +49,6 @@ import java.util.regex.Pattern;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
-    /**
-     * 生产环境
-     */
-    private final static String ENV_PROD = "prod";
 
     private final UnifiedMessageSource unifiedMessageSource;
 
@@ -99,7 +96,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NoHandlerFoundException.class)
     public <T> R<T> handleException(NoHandlerFoundException e) {
         log.error("未找到匹配的请求处理器", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -110,7 +107,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public <T> R<T> handleException(HttpRequestMethodNotSupportedException e) {
         log.error("请求方法不支持", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -121,7 +118,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     public <T> R<T> handleException(HttpMediaTypeNotSupportedException e) {
         log.error("请求头content-type不支持", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -132,7 +129,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingPathVariableException.class)
     public <T> R<T> handleException(MissingPathVariableException e) {
         log.error("缺少请求路径参数", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -143,7 +140,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public <T> R<T> handleException(MissingServletRequestParameterException e) {
         log.error("缺少请求参数", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -154,7 +151,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(TypeMismatchException.class)
     public <T> R<T> handleException(TypeMismatchException e) {
         log.error("参数类型不匹配", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -165,7 +162,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public <T> R<T> handleException(HttpMessageNotReadableException e) {
         log.error("请求内容不可读", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -176,7 +173,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotWritableException.class)
     public <T> R<T> handleException(HttpMessageNotWritableException e) {
         log.error("返回结果序列化异常", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -190,7 +187,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ServletException.class)
     public <T> R<T> handleException(ServletException e) {
         log.error("Servlet异常", e.getMessage(), e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -272,7 +269,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public <T> R<T> handleException(IllegalArgumentException e) {
         log.error("非法参数异常，异常原因：{}", e.getMessage(), e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
@@ -284,7 +281,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(JsonProcessingException.class)
     public <T> R<T> handleException(JsonProcessingException e) {
         log.error("Json转换异常，异常原因：{}", e.getMessage(), e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             // 当为生产环境, 不适合把具体的异常信息展示给用户, 比如404.
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
@@ -296,7 +293,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(SQLSyntaxErrorException.class)
     public <T> R<T> handleException(SQLSyntaxErrorException e) {
         log.error("SQL语法错误", e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -312,7 +309,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(CompletionException.class)
     public <T> R<T> handleException(CompletionException e) {
         log.error(e.getMessage(), e);
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(ResultCode.SYSTEM_EXECUTION_ERROR);
             return R.failed(message);
         }
@@ -347,7 +344,7 @@ public class GlobalExceptionHandler {
     public <T> R<T> handleException(Exception e) {
         log.error("未知异常,异常原因：{}", e.getMessage(), e);
         // 如果是生产环境，将具体错误信息展示给用户就不合适了
-        if (ENV_PROD.equals(profile)) {
+        if (GlobalConstants.ENV_PROD.equals(profile)) {
             String message = getMessage(new BaseException(ResultCode.SYSTEM_EXECUTION_ERROR));
             return R.failed(message);
         }
