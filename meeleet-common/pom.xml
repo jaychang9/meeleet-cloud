@@ -18,8 +18,11 @@
     <modules>
         <module>meeleet-common-core</module>
         <module>meeleet-common-security</module>
-        <module>meeleet-common-auth</module>
+        <module>meeleet-common-mybatis</module>
+        <module>meeleet-common-redis</module>
+        <module>meeleet-common-file</module>
         <module>meeleet-common-web</module>
+        <module>meeleet-common-auth</module>
     </modules>
 
 </project>
