@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.meeleet.cloud.common.auth.config.CacheConfig,\
   com.meeleet.cloud.common.auth.config.WechatWeappConfig,\
-  com.meeleet.cloud.common.auth.exception.AuthExceptionHandler
+  com.meeleet.cloud.common.auth.exception.AuthExceptionHandler,\
+  com.meeleet.cloud.common.auth.controller.AuthController
