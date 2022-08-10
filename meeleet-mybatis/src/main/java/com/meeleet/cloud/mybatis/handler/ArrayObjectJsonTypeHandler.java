@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.mybatis.handler;
+package com.meeleet.cloud.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.toolkit.ArrayUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;

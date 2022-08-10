@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.mybatis.annotation;
+package com.meeleet.cloud.mybatis.annotation;
 
 import java.lang.annotation.*;
 
