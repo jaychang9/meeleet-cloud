@@ -15,11 +15,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-common-core</artifactId>
-        </dependency>
-
         <!-- Spring Boot dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
