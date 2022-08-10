@@ -17,5 +17,6 @@
 
   <modules>
     <module>meeleet-file-spring-boot-starter</module>
+    <module>meeleet-web-spring-boot-starter</module>
   </modules>
 </project>

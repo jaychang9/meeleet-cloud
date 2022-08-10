@@ -36,14 +36,11 @@ import java.sql.SQLSyntaxErrorException;
 import java.util.concurrent.CompletionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
 /**
  * 全局系统异常处理
  * 调整异常处理的HTTP状态码，丰富异常处理类型
  *
- * @author hxrui
- * @author Gadfly
+ * @author jaychang
  * @date 2020-02-25 13:54
  * <p>
  **/
