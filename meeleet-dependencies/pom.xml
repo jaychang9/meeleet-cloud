@@ -26,6 +26,7 @@
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <weixin-java-miniapp.version>4.3.7.B</weixin-java-miniapp.version>
         <minio.version>8.2.2</minio.version>
+        <fastjson.version>2.0.11</fastjson.version>
         <thumbnailator.version>0.4.17</thumbnailator.version>
         <user-agent-utils.version>1.21</user-agent-utils.version>
         <lombok.version>1.18.24</lombok.version>
@@ -201,6 +202,11 @@
                 <version>${spring-cloud-starter-dubbo.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redission.version}</version>
@@ -251,17 +257,17 @@
             </dependency>
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-mybatis</artifactId>
+                <artifactId>meeleet-common-mybatis</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-redis</artifactId>
+                <artifactId>meeleet-common-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
-                <artifactId>meeleet-file</artifactId>
+                <artifactId>meeleet-common-file</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

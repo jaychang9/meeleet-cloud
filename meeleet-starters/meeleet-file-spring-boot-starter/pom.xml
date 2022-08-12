@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-file</artifactId>
+            <artifactId>meeleet-common-file</artifactId>
         </dependency>
     </dependencies>
 

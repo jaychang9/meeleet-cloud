@@ -23,9 +23,6 @@
         <module>meeleet-dependencies</module>
         <module>meeleet-parent</module>
         <module>meeleet-common</module>
-        <module>meeleet-file</module>
-        <module>meeleet-redis</module>
-        <module>meeleet-mybatis</module>
         <module>meeleet-starters</module>
     </modules>
 

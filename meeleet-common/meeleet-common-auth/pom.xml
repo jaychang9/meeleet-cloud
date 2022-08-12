@@ -83,7 +83,7 @@
 
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-redis</artifactId>
+            <artifactId>meeleet-common-redis</artifactId>
         </dependency>
 
         <!-- Unit Test -->
