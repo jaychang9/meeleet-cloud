@@ -6,6 +6,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
+import com.meeleet.cloud.common.util.StringPool;
 import com.nimbusds.jose.JWSObject;
 import lombok.Data;
 import lombok.SneakyThrows;
@@ -60,7 +61,7 @@ public class RequestUtils {
         // 从请求头获取
         String basic = request.getHeader(SecurityConstants.AUTHORIZATION_KEY);
         if (StrUtil.isNotBlank(basic) && basic.startsWith(SecurityConstants.BASIC_PREFIX)) {
-            basic = basic.replace(SecurityConstants.BASIC_PREFIX, StringConstant.EMPTY_STR);
+            basic = basic.replace(SecurityConstants.BASIC_PREFIX, StringPool.EMPTY);
             String basicPlainText = new String(Base64.getDecoder().decode(basic.getBytes(StandardCharsets.UTF_8)), StandardCharsets.UTF_8);
             clientId = basicPlainText.split(":")[0]; //client:secret
         }
