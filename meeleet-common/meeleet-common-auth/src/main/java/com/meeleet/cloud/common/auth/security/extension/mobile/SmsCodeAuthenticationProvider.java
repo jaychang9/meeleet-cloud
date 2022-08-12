@@ -2,9 +2,9 @@ package com.meeleet.cloud.common.auth.security.extension.mobile;
 
 import cn.hutool.core.util.StrUtil;
 import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
-import com.meeleet.cloud.common.constant.StringConstant;
 import com.meeleet.cloud.common.exception.BusinessException;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.util.StringPool;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -39,7 +39,7 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider, In
         Map<String, String> parameters = (Map<String, String>) authentication.getDetails();
         String clientId = parameters.get(SecurityConstants.CLIENT_ID_KEY);
         if (!code.equals("666666")) { // 666666 是后门，因为短信收费，正式环境删除这个if分支
-            String codeKey = SecurityConstants.AUTH_SMS_CODE_PREFIX + clientId + StringConstant.COLON_SPLIT_STR + mobile;
+            String codeKey = SecurityConstants.AUTH_SMS_CODE_PREFIX + clientId + StringPool.COLON + mobile;
             String correctCode = redisTemplate.opsForValue().get(codeKey);
             // 验证码比对
             if (StrUtil.isBlank(correctCode) || !code.equals(correctCode)) {

@@ -2,8 +2,8 @@ package com.meeleet.cloud.common.auth.security.extension.captcha;
 
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.StrUtil;
-import com.meeleet.cloud.common.constant.StringConstant;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import com.meeleet.cloud.common.util.StringPool;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.authentication.*;
 import org.springframework.security.core.Authentication;
@@ -55,7 +55,7 @@ public class CaptchaTokenGranter extends AbstractTokenGranter {
 
         Assert.isTrue(StrUtil.isNotBlank(validateCode), "验证码不能为空");
         String clientId = parameters.get(SecurityConstants.CLIENT_ID_KEY);
-        String validateCodeKey = SecurityConstants.AUTH_VALIDATION_CODE_KEY_PREFIX + clientId + StringConstant.COLON_SPLIT_STR + uuid;
+        String validateCodeKey = SecurityConstants.AUTH_VALIDATION_CODE_KEY_PREFIX + clientId + StringPool.COLON + uuid;
 
         // 从缓存取出正确的验证码和用户输入的验证码比对
         String correctValidateCode = redisTemplate.opsForValue().get(validateCodeKey);
