@@ -1,6 +1,6 @@
 package com.meeleet.cloud.common.validation.constraints;
 
-import com.meeleet.cloud.common.validation.constraints.impl.MobilePhoneValueValidator;
+import com.meeleet.cloud.common.validation.constraints.impl.FlagValueValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,17 +9,17 @@ import java.lang.annotation.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 校验手机号码格式
+ * 校验标识，只有Y和N两种状态的标识
  *
  * @author aaronuu
  */
 @Documented
-@Constraint(validatedBy = MobilePhoneValueValidator.class)
+@Constraint(validatedBy = FlagValueValidator.class)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MobilePhone {
+public @interface FlagValue {
 
-	String message() default "手机号码格式不正确";
+	String message() default "不正确的flag标识，请传递Y或者N";
 
 	Class[] groups() default {};
 
@@ -36,6 +36,6 @@ public @interface MobilePhone {
 	@Retention(RUNTIME)
 	@Documented
 	@interface List {
-		MobilePhone[] value();
+		FlagValue[] value();
 	}
 }

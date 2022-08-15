@@ -1,6 +1,6 @@
 package com.meeleet.cloud.common.validation.constraints;
 
-import com.meeleet.cloud.common.validation.constraints.impl.MobilePhoneValueValidator;
+import com.meeleet.cloud.common.validation.constraints.impl.DateValueValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,21 +9,32 @@ import java.lang.annotation.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 校验手机号码格式
+ * 日期格式的校验，根据format参数的格式校验
+ * <p>
+ * format可以填写：
+ * <p>
+ * yyyy-MM-dd
+ * <p>
+ * yyyy-MM-dd HH:mm:ss
  *
  * @author aaronuu
  */
 @Documented
-@Constraint(validatedBy = MobilePhoneValueValidator.class)
+@Constraint(validatedBy = DateValueValidator.class)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MobilePhone {
+public @interface DateValue {
 
-	String message() default "手机号码格式不正确";
+	String message() default "日期格式不正确，正确格式应为yyyy-MM-dd";
 
 	Class[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
+
+	/**
+	 * 日期校验的格式，默认 yyyy-MM-dd
+	 */
+	String format() default "yyyy-MM-dd";
 
 	/**
 	 * 是否必填
@@ -36,6 +47,6 @@ public @interface MobilePhone {
 	@Retention(RUNTIME)
 	@Documented
 	@interface List {
-		MobilePhone[] value();
+		DateValue[] value();
 	}
 }

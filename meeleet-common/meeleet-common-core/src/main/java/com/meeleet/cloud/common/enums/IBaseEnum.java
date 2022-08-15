@@ -83,5 +83,4 @@ public interface IBaseEnum<T> {
         return value;
     }
 
-
 }

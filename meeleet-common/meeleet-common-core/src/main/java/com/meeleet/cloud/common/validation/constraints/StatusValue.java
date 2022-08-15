@@ -1,6 +1,6 @@
 package com.meeleet.cloud.common.validation.constraints;
 
-import com.meeleet.cloud.common.validation.constraints.impl.MobilePhoneValueValidator;
+import com.meeleet.cloud.common.validation.constraints.impl.StatusValueValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -9,17 +9,17 @@ import java.lang.annotation.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 校验手机号码格式
+ * 状态校验，校验参数的状态是否是 StatusEnum 中的值
  *
  * @author aaronuu
  */
 @Documented
-@Constraint(validatedBy = MobilePhoneValueValidator.class)
+@Constraint(validatedBy = StatusValueValidator.class)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MobilePhone {
+public @interface StatusValue {
 
-	String message() default "手机号码格式不正确";
+	String message() default "不正确的状态标识";
 
 	Class[] groups() default {};
 
@@ -36,6 +36,6 @@ public @interface MobilePhone {
 	@Retention(RUNTIME)
 	@Documented
 	@interface List {
-		MobilePhone[] value();
+		StatusValue[] value();
 	}
 }

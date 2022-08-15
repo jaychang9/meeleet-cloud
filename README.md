@@ -192,3 +192,9 @@ org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticatio
 
 # Minio 与OkHttp 版本冲突问题
 minio版本降低到8.2.2   
+
+
+# nacos设置元数据
+建议使用系统环境变量来设置，示例如下
+spring.cloud.nacos.discovery.metadata.version=1.0
+spring.cloud.nacos.discovery.metadata.weight=8
