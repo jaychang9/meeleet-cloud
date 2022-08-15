@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * @link https://mp.baomidou.com/guide/auto-fill-metainfo.html
  */
 @Component
-public class MyMetaObjectHandler implements MetaObjectHandler {
+public class MeeleetMetaObjectHandler implements MetaObjectHandler {
 
     public static final String CREATE_FIELD_NAME = "createTime";
 

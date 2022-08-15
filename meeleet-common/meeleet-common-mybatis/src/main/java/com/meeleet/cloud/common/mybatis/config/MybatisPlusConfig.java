@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.meeleet.cloud.mybatis.handler.IntegerArrayJsonTypeHandler;
 import com.meeleet.cloud.mybatis.handler.LongArrayJsonTypeHandler;
-import com.meeleet.cloud.mybatis.handler.MyMetaObjectHandler;
+import com.meeleet.cloud.mybatis.handler.MeeleetMetaObjectHandler;
 import com.meeleet.cloud.mybatis.handler.StringArrayJsonTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandlerRegistry;
@@ -51,7 +51,7 @@ public class MybatisPlusConfig {
     @Bean
     public GlobalConfig globalConfig() {
         GlobalConfig globalConfig = new GlobalConfig();
-        globalConfig.setMetaObjectHandler(new MyMetaObjectHandler());
+        globalConfig.setMetaObjectHandler(new MeeleetMetaObjectHandler());
         return globalConfig;
     }
 
