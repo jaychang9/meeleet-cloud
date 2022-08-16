@@ -24,6 +24,9 @@ https://blog.csdn.net/qq_36525300/article/details/120224966
 Nacos 自带 spring-cloud-starter-netflix-ribbon，而 Netflix 的 Ribbon 已进入维护阶段，从最新的 SpringCloud 2020 版本开始就需要改用 Spring cloud loadbalancer
 
 
+# nacos配置yaml貌似不能用"#”来做注释会yaml格式不正确
+
+
 
 # gateway 本例中
 访问http://127.0.0.1:9999/learn-admin/echo/demo_name 网关即会将请求转发到服务ID为learn-admin的服务，本例是http://127.0.0.1:8802/echo/demo_name,转发前去掉learn-admin前缀
