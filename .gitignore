@@ -12,6 +12,7 @@ target
 
 # Maven
 pom-xml-flattened
+*flattened
 
 # Nacos
 !**/nacos/target
