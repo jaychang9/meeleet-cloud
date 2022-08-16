@@ -6,6 +6,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.Map;
 
+/**
+ * 扩展UserDetailsService接口功能
+ * 使得可以支持按手机号、按openid来获取UserDetails
+ * @author jaychang
+ */
 public interface ExtUserDetailsService extends UserDetailsService {
 
     /**

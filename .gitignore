@@ -10,6 +10,9 @@ gen
 target
 *.log
 
+# Maven
+pom-xml-flattened
+
 # Nacos
 !**/nacos/target
 **/nacos/bin/work

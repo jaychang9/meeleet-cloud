@@ -55,6 +55,7 @@ public class WechatAuthenticationProvider implements AuthenticationProvider {
         Assert.notNull(userDetailsService, String.format("UserDetailsService must not null,please check whether userDetailsService corresponding to client_id:%s exists.", clientId));
         UserDetails loadedUser = userDetailsService.loadUserByOpenid(openid);
 
+        // TODO 想办法移除addUser方法
         // 微信用户不存在，注册成为新会员
         if (Objects.isNull(loadedUser)) {
             String sessionKey = sessionInfo.getSessionKey();
