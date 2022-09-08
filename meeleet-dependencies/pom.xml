@@ -167,6 +167,7 @@
                 <artifactId>micrometer-registry-prometheus</artifactId>
                 <version>${prometheus.version}</version>
             </dependency>
+            <!--实现自动 加密解密-->
             <dependency>
                 <groupId>com.github.ulisesbocchio</groupId>
                 <artifactId>jasypt-spring-boot-starter</artifactId>
