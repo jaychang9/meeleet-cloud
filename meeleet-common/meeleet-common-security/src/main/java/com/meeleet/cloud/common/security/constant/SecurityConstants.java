@@ -100,7 +100,7 @@ public interface SecurityConstants {
     /**
      * 系统管理 web 客户端ID
      */
-    String ADMIN_CLIENT_ID = "mall-admin";
+    String ADMIN_CLIENT_ID = "mall-admin-web";
 
     /**
      * 移动端（H5/Android/IOS）客户端ID
