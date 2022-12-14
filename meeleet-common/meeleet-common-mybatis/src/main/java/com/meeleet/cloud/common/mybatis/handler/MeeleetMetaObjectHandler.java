@@ -25,8 +25,13 @@ public class MeeleetMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.strictInsertFill(metaObject, CREATE_FIELD_NAME, () -> LocalDateTime.now(), LocalDateTime.class);
-        this.strictUpdateFill(metaObject, UPDATE_FIELD_NAME, () -> LocalDateTime.now(), LocalDateTime.class);
+        if (this.getFieldValByName(CREATE_FIELD_NAME, metaObject) == null) {
+            this.strictInsertFill(metaObject, CREATE_FIELD_NAME, () -> LocalDateTime.now(), LocalDateTime.class);
+        }
+        if (this.getFieldValByName(UPDATE_FIELD_NAME, metaObject) == null) {
+            this.strictUpdateFill(metaObject, UPDATE_FIELD_NAME, () -> LocalDateTime.now(), LocalDateTime.class);
+        }
+
     }
 
     /**
@@ -36,7 +41,9 @@ public class MeeleetMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.strictUpdateFill(metaObject, UPDATE_FIELD_NAME, () -> LocalDateTime.now(), LocalDateTime.class);
+        if (this.getFieldValByName(UPDATE_FIELD_NAME, metaObject) == null) {
+            this.strictUpdateFill(metaObject, UPDATE_FIELD_NAME, () -> LocalDateTime.now(), LocalDateTime.class);
+        }
     }
 
 }

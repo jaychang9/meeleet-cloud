@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.meeleet.cloud.common.mybatis.config.MybatisPlusConfig,\
+  com.meeleet.cloud.common.mybatis.handler.MeeleetMetaObjectHandler
