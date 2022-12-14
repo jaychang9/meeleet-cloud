@@ -38,7 +38,7 @@
         <mapstruct.version>1.5.2.Final</mapstruct.version>
         <redission.version>3.16.8</redission.version>
         <nimbus-jose-jwt.version>8.23</nimbus-jose-jwt.version>
-        <mybatis-plus.version>3.4.3</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <jedis-mock.version>1.0.3</jedis-mock.version>
         <podam.version>7.2.9.RELEASE</podam.version>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
@@ -315,6 +315,21 @@
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-common-file</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-file-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-mybatis-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-web-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
