@@ -21,7 +21,7 @@
         <servlet-api.version>4.0.1</servlet-api.version>
         <hutool.version>5.5.8</hutool.version>
         <swagger-annotations.version>2.2.1</swagger-annotations.version>
-        <springdoc.version>1.6.9</springdoc.version>
+        <springdoc.version>1.6.13</springdoc.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <dubbo.version>2.7.19</dubbo.version>
         <transmittable.version>2.13.2</transmittable.version>
