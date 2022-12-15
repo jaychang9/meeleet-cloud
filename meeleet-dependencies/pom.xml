@@ -19,26 +19,27 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <servlet-api.version>4.0.1</servlet-api.version>
-        <hutool.version>5.5.8</hutool.version>
+        <hutool.version>5.8.10</hutool.version>
         <swagger-annotations.version>2.2.1</swagger-annotations.version>
         <springdoc.version>1.6.9</springdoc.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <dubbo.version>2.7.19</dubbo.version>
-        <transmittable.version>2.13.2</transmittable.version>
+        <transmittable.version>2.14.2</transmittable.version>
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <weixin-java-miniapp.version>4.3.7.B</weixin-java-miniapp.version>
         <minio.version>8.2.2</minio.version>
-        <fastjson.version>2.0.11</fastjson.version>
-        <thumbnailator.version>0.4.17</thumbnailator.version>
+        <fastjson2.version>2.0.20</fastjson2.version>
+        <thumbnailator.version>0.4.18</thumbnailator.version>
         <prometheus.version>1.8.5</prometheus.version>
         <jasypt.version>3.0.4</jasypt.version>
         <retrofit.version>2.2.3</retrofit.version>
         <user-agent-utils.version>1.21</user-agent-utils.version>
         <lombok.version>1.18.24</lombok.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
+        <druid.version>1.2.15</druid.version>
         <redission.version>3.16.8</redission.version>
         <nimbus-jose-jwt.version>8.23</nimbus-jose-jwt.version>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <jedis-mock.version>1.0.3</jedis-mock.version>
         <podam.version>7.2.9.RELEASE</podam.version>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
@@ -224,6 +225,11 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-dubbo</artifactId>
                 <version>${spring-cloud-starter-dubbo.version}</version>
@@ -249,15 +255,37 @@
                 <version>${dubbo.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson</artifactId>
                 <version>${redission.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-annotation</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-web</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-spring-boot-starter</artifactId>
+                <version>${easypoi.version}</version>
+            </dependency>
+
+
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
