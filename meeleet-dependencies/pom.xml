@@ -28,6 +28,7 @@
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <weixin-java-miniapp.version>4.3.7.B</weixin-java-miniapp.version>
         <minio.version>8.2.2</minio.version>
+        <aws-java-sdk-s3.version>1.12.364</aws-java-sdk-s3.version>
         <fastjson2.version>2.0.20</fastjson2.version>
         <thumbnailator.version>0.4.18</thumbnailator.version>
         <prometheus.version>1.8.5</prometheus.version>
@@ -184,6 +185,12 @@
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio.version}</version>
+            </dependency>
+            <!--S3 SDK-->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-s3</artifactId>
+                <version>${aws-java-sdk-s3.version}</version>
             </dependency>
             <dependency>
                 <groupId>net.coobird</groupId>
@@ -396,6 +403,11 @@
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-lock-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-oss-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
