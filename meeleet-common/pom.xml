@@ -23,6 +23,7 @@
         <module>meeleet-common-file</module>
         <module>meeleet-common-web</module>
         <module>meeleet-common-auth</module>
+        <module>meeleet-common-strategy</module>
     </modules>
 
 </project>

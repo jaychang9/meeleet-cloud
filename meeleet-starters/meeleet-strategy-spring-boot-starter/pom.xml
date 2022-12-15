@@ -9,15 +9,14 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>meeleet-redis-spring-boot-starter</artifactId>
-    <name>Meeleet Redis Spring Boot Starter</name>
-    <description>Meeleet Redis Spring Boot Starter</description>
+    <artifactId>meeleet-strategy-spring-boot-starter</artifactId>
+    <name>Meeleet Strategy Spring Boot Starter</name>
+    <description>Meeleet Strategy Spring Boot Starter</description>
 
     <dependencies>
         <dependency>
             <groupId>com.meeleet.cloud</groupId>
-            <artifactId>meeleet-common-redis</artifactId>
+            <artifactId>meeleet-common-strategy</artifactId>
         </dependency>
     </dependencies>
-
 </project>

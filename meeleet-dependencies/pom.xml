@@ -281,7 +281,7 @@
             </dependency>
 
             <!-- 推荐使用${project.version}管理子模块依赖版本（兼容不使用${revision}的模式） -->
-            <!-- Second Part Api Define -->
+            <!-- meeleet commons -->
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-common-core</artifactId>
@@ -319,6 +319,13 @@
             </dependency>
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-common-strategy</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- meeleet starters -->
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-file-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -329,9 +336,21 @@
             </dependency>
             <dependency>
                 <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-redis-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-strategy-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
                 <artifactId>meeleet-web-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 
