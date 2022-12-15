@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.meeleet.cloud.common.redis.RedisConfig,\
+    com.meeleet.cloud.starter.redis.config.BusinessNoGeneratorAutoConfiguration

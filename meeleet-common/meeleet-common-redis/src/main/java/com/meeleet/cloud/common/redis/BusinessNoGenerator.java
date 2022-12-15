@@ -3,14 +3,12 @@ package com.meeleet.cloud.common.redis;
 import com.meeleet.cloud.common.redis.constant.RedisConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 
-@Component
 @Slf4j
 public class BusinessNoGenerator {
 
