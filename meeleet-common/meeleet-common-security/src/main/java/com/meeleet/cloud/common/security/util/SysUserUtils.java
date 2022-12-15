@@ -15,7 +15,7 @@ import java.util.List;
  * @author jaychang
  */
 @Slf4j
-public class UserUtils {
+public class SysUserUtils {
 
     /**
      * 解析JWT获取用户ID
