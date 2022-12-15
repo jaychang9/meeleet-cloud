@@ -1,3 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.meeleet.cloud.common.web.config.JacksonConfig,\
   com.meeleet.cloud.common.web.config.WebMvcConfig,\
   com.meeleet.cloud.common.web.exception.GlobalExceptionHandler

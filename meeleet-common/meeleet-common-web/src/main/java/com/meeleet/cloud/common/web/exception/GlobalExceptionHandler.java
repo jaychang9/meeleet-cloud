@@ -12,6 +12,7 @@ import com.meeleet.cloud.common.result.ResultCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
@@ -46,6 +47,7 @@ import java.util.regex.Pattern;
  * @date 2020-02-25 13:54
  * <p>
  **/
+@Import(UnifiedMessageSource.class)
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
