@@ -21,5 +21,7 @@
     <module>meeleet-mybatis-spring-boot-starter</module>
     <module>meeleet-redis-spring-boot-starter</module>
     <module>meeleet-strategy-spring-boot-starter</module>
+    <module>meeleet-mail-spring-boot-starter</module>
+    <module>meeleet-lock-spring-boot-starter</module>
   </modules>
 </project>

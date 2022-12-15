@@ -24,7 +24,7 @@
         <springdoc.version>1.6.9</springdoc.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <dubbo.version>2.7.19</dubbo.version>
-        <transmittable.version>2.14.2</transmittable.version>
+        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <weixin-java-miniapp.version>4.3.7.B</weixin-java-miniapp.version>
         <minio.version>8.2.2</minio.version>
@@ -39,9 +39,10 @@
         <druid.version>1.2.15</druid.version>
         <redission.version>3.16.8</redission.version>
         <nimbus-jose-jwt.version>8.23</nimbus-jose-jwt.version>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
         <jedis-mock.version>1.0.3</jedis-mock.version>
         <podam.version>7.2.9.RELEASE</podam.version>
+        <gson.version>2.10</gson.version>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
         <springfox-boot-starter.version>3.0.0</springfox-boot-starter.version>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
@@ -161,7 +162,7 @@
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>transmittable-thread-local</artifactId>
-                <version>${transmittable.version}</version>
+                <version>${transmittable-thread-local.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.micrometer</groupId>
@@ -208,6 +209,11 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -350,6 +356,11 @@
                 <artifactId>meeleet-common-strategy</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-common-mail</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- meeleet starters -->
             <dependency>
@@ -377,7 +388,16 @@
                 <artifactId>meeleet-web-spring-boot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-mail-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.meeleet.cloud</groupId>
+                <artifactId>meeleet-lock-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

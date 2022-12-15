@@ -24,6 +24,7 @@
         <module>meeleet-common-web</module>
         <module>meeleet-common-auth</module>
         <module>meeleet-common-strategy</module>
+        <module>meeleet-common-mail</module>
     </modules>
 
 </project>

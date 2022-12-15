@@ -8,9 +8,9 @@ import com.alibaba.druid.proxy.jdbc.ResultSetProxy;
 import com.alibaba.druid.proxy.jdbc.StatementProxy;
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.util.StringUtils;
+import com.meeleet.cloud.common.mybatis.props.MeeleetMybatisProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import vip.mate.core.mybatis.props.MateMybatisProperties;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SqlLogFilter extends FilterEventAdapter {
 	private static final SQLUtils.FormatOption FORMAT_OPTION = new SQLUtils.FormatOption(false, false);
-	private final MateMybatisProperties properties;
+	private final MeeleetMybatisProperties properties;
 
 	@Override
 	protected void statementExecuteBefore(StatementProxy statement, String sql) {
