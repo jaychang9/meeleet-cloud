@@ -55,6 +55,6 @@
     <module>meeleet-strategy-spring-boot-starter</module>
     <module>meeleet-mail-spring-boot-starter</module>
     <module>meeleet-lock-spring-boot-starter</module>
-    <module>meeleet-oss-spring-boot-starter</module>
+    <!--<module>meeleet-oss-spring-boot-starter</module>-->
   </modules>
 </project>
