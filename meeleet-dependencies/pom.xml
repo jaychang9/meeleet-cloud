@@ -35,6 +35,7 @@
         <jasypt.version>3.0.4</jasypt.version>
         <retrofit.version>2.2.3</retrofit.version>
         <user-agent-utils.version>1.21</user-agent-utils.version>
+        <vavr.version>0.10.4</vavr.version>
         <lombok.version>1.18.24</lombok.version>
         <mapstruct.version>1.5.2.Final</mapstruct.version>
         <druid.version>1.2.15</druid.version>
@@ -203,6 +204,11 @@
                 <version>${user-agent-utils.version}</version>
             </dependency>
             <dependency>
+                <groupId>io.vavr</groupId>
+                <artifactId>vavr</artifactId>
+                <version>${vavr.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
@@ -297,7 +303,6 @@
                 <artifactId>easypoi-spring-boot-starter</artifactId>
                 <version>${easypoi.version}</version>
             </dependency>
-
 
             <dependency>
                 <groupId>cn.hutool</groupId>
