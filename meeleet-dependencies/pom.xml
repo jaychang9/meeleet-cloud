@@ -28,6 +28,8 @@
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <weixin-java-miniapp.version>4.3.7.B</weixin-java-miniapp.version>
         <minio.version>8.2.2</minio.version>
+        <easypoi.version>4.4.0</easypoi.version>
+        <logstash-logback-encoder.version>7.3</logstash-logback-encoder.version>
         <aws-java-sdk-s3.version>1.12.364</aws-java-sdk-s3.version>
         <fastjson2.version>2.0.20</fastjson2.version>
         <thumbnailator.version>0.4.18</thumbnailator.version>
@@ -302,6 +304,12 @@
                 <groupId>cn.afterturn</groupId>
                 <artifactId>easypoi-spring-boot-starter</artifactId>
                 <version>${easypoi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash-logback-encoder.version}</version>
             </dependency>
 
             <dependency>
