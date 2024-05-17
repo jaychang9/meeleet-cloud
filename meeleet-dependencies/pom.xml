@@ -23,7 +23,7 @@
         <swagger-annotations.version>2.2.1</swagger-annotations.version>
         <springdoc.version>1.6.9</springdoc.version>
         <easyexcel.version>3.0.5</easyexcel.version>
-        <dubbo.version>2.7.19</dubbo.version>
+        <dubbo.version>2.7.23</dubbo.version>
         <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
         <easy-captcha.version>1.6.2</easy-captcha.version>
         <weixin-java-miniapp.version>4.3.7.B</weixin-java-miniapp.version>
