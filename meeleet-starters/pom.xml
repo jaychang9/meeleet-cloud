@@ -3,6 +3,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.meeleet.cloud</groupId>
+    <artifactId>meeleet-parent</artifactId>
+    <relativePath>../meeleet-parent</relativePath>
+    <version>${revision}</version>
+  </parent>
+
+  <artifactId>meeleet-starters</artifactId>
+  <name>Meeleet Spring Boot Starters</name>
+  <description>Meeleet Spring Boot Starters</description>
+  <packaging>pom</packaging>
+
   <dependencies>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -35,17 +48,6 @@
       <artifactId>spring-boot-autoconfigure</artifactId>
     </dependency>
   </dependencies>
-  <parent>
-    <groupId>com.meeleet.cloud</groupId>
-    <artifactId>meeleet-parent</artifactId>
-    <relativePath>../meeleet-parent</relativePath>
-    <version>${revision}</version>
-  </parent>
-
-  <artifactId>meeleet-starters</artifactId>
-  <name>Meeleet Spring Boot Starters</name>
-  <description>Meeleet Spring Boot Starters</description>
-  <packaging>pom</packaging>
 
   <modules>
     <module>meeleet-file-spring-boot-starter</module>
