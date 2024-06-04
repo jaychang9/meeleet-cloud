@@ -1,5 +1,6 @@
 package com.meeleet.cloud.common.auth.security.userdetails;
 
+import org.springframework.plugin.core.Plugin;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -11,10 +12,10 @@ import java.util.Map;
  * 使得可以支持按手机号、按openid来获取UserDetails
  * @author jaychang
  */
-public interface ExtUserDetailsService extends UserDetailsService {
+public interface ExtUserDetailsService extends UserDetailsService, Plugin<String> {
 
     /**
-     * 根据openId加载用户信息
+     * 根据手机号加载用户信息
      *
      * @param username
      * @return

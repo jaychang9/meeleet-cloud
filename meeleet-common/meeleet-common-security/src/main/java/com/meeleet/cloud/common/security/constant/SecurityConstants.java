@@ -129,4 +129,15 @@ public interface SecurityConstants {
     List<String> PROD_FORBID_METHODS = Arrays.asList("PUT", "DELETE");
 
 
+    /**
+     * 商城会员用户类型
+     */
+    String MALL_MEMBER_USER_TYPE = "mall-member";
+
+    /**
+     * 商城管理端用户类型
+     */
+    String MALL_ADMIN_USER_TYPE = "mall-admin";
+
+
 }
