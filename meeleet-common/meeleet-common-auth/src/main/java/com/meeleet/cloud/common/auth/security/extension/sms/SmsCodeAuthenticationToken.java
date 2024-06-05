@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.auth.security.extension.mobile;
+package com.meeleet.cloud.common.auth.security.extension.sms;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -7,7 +7,7 @@ import org.springframework.util.Assert;
 import java.util.Collection;
 
 /**
- * 手机验证码登录
+ * 短信验证码登录
  *
  * @author jaychang
  * @date 2021/10/5

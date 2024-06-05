@@ -1,8 +1,9 @@
-package com.meeleet.cloud.common.auth.security.extension.mobile;
+package com.meeleet.cloud.common.auth.security.extension.sms;
 
 import cn.hutool.core.util.StrUtil;
 import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailServiceFactory;
 import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.auth.security.userdetails.PreAuthenticationChecks;
 import com.meeleet.cloud.common.exception.BusinessException;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
 import com.meeleet.cloud.common.util.StringPool;
@@ -31,6 +32,7 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider, In
     @Setter
     private ExtUserDetailServiceFactory extUserDetailServiceFactory;
     private StringRedisTemplate redisTemplate;
+    private PreAuthenticationChecks preAuthenticationChecks = new PreAuthenticationChecks();
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -53,10 +55,7 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider, In
         ExtUserDetailsService userDetailsService = getUserDetailsService(clientId);
         Assert.notNull(userDetailsService, String.format("UserDetailsService must not null,please check whether userDetailsService corresponding to client_id:%s exists.", clientId));
         UserDetails loadedUser = userDetailsService.loadUserByMobile(mobile);
-        if (loadedUser == null) {
-            throw new InternalAuthenticationServiceException(
-                    "UserDetailsService returned null, which is an interface contract violation");
-        }
+        preAuthenticationChecks.check(loadedUser);
 
         SmsCodeAuthenticationToken result = new SmsCodeAuthenticationToken(loadedUser, authentication.getCredentials(), Optional.ofNullable(loadedUser.getAuthorities()).orElse(new HashSet<>()));
         result.setDetails(authentication.getDetails());
