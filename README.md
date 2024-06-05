@@ -3,16 +3,29 @@ nacos namespace 可以用作区分不同环境
 nacos group 可以作为业务组区分
 
 # nacos config配置创建
-config/learn-common.yaml为公共配置，需要放到Nacos Config，DataId为learn-common.yaml
-config/learn-xxx.yaml为各个项目的配置，同样需要放到Nacos Config,DataId为learn.xxx.yaml
+config/mall-common.yaml为公共配置，需要放到Nacos Config，DataId为mall-common.yaml
+config/mall-xxx.yaml为各个项目的配置，同样需要放到Nacos Config,DataId为mall-xxx.yaml
 
 
 # 不同环境部署时需要设置的环境变量
-spring.cloud.nacos.discovery.server-addr=http://10.1.80.62:8848
+spring.cloud.nacos.discovery.server-addr=http://localhost:8848
 spring.cloud.nacos.discovery.namespace=test
 spring.cloud.nacos.discovery.group=XXX_GROUP
 spring.cloud.nacos.config.namespace=test
 spring.cloud.nacos.config.group=XXX_GROUP
+
+```yaml
+spring:
+  cloud:
+    nacos:
+      discovery:
+        namespace: test
+        group: XXX_GROUP
+        server-addr: http://localhost:8848
+      config:
+        namespace: test
+        group: XXX_GROUP
+```
 
 
 # 若要实时更新配置值
@@ -29,7 +42,8 @@ Nacos 自带 spring-cloud-starter-netflix-ribbon，而 Netflix 的 Ribbon 已进
 
 
 # gateway 本例中
-访问http://127.0.0.1:9999/learn-admin/echo/demo_name 网关即会将请求转发到服务ID为learn-admin的服务，本例是http://127.0.0.1:8802/echo/demo_name,转发前去掉learn-admin前缀
+访问http://localhost:9999/mall-admin-web/echo/demo_name 网关即会将请求转发到服务ID为mall-admin-web
+的服务，本例是http://localhost:8802/echo/demo_name,转发前去掉mall-admin-web前缀
 
 
 # 如果要使用openfeign调用那么需要引入以下依赖
@@ -54,9 +68,9 @@ Nacos 自带 spring-cloud-starter-netflix-ribbon，而 Netflix 的 Ribbon 已进
 
 > 生成密钥库
 
-使用JDK工具的keytool生成JKS密钥库(Java Key Store)，并将meeleet.jks放到resources目录
+使用JDK工具的keytool生成JKS密钥库(Java Key Store)，并将jwt.jks放到resources目录
 
-keytool -genkey -alias jwt -keyalg RSA -keypass 123456 -keystore meeleet.jks -storepass 123456
+keytool -genkey -alias jwt -keyalg RSA -keypass 123456 -keystore jwt.jks -storepass 123456
 
 > 获取公钥
 keytool -list -rfc --keystore meeleet.jks | openssl x509 -inform pem -pubkey
@@ -130,13 +144,13 @@ public class OpenAPI30Configuration implements WebMvcConfigurer {
 http://localhost:9999/swagger-ui.html
 
 # 微服务直接访问api文档
-http://localhost:9999/learn-ops/swagger-ui.html
-http://localhost:9999/learn-ops/swagger-ui/index.html
+http://localhost:9999/mall-admin-web/swagger-ui.html
+http://localhost:9999/mall-admin-web/swagger-ui/index.html
 以上两种方式都可以
 
 
 # nacos配置复制的问题
-learn-auth复制到nacos config，会变成learn_auth,需要特别注意
+meeleet-auth复制到nacos config，会变成meeleet_auth,需要特别注意
 
 
 
