@@ -3,6 +3,4 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.meeleet.cloud.common.auth.exception.AuthExceptionHandler,\
   com.meeleet.cloud.common.auth.controller.AuthController,\
   com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailServiceFactory,\
-  com.meeleet.cloud.common.auth.security.extension.mobile.SmsCodeAuthenticationSecurityConfig,\
-  com.meeleet.cloud.common.auth.security.extension.wechat.WechatAuthenticationSecurityConfig,com.meeleet.cloud.common.auth.security.extension.wechat.WechatWeappConfig,\
-  com.meeleet.cloud.common.auth.security.extension.password.PasswordAuthenticationSecurityConfig
+  com.meeleet.cloud.common.auth.security.extension.wechat.WechatWeappConfig

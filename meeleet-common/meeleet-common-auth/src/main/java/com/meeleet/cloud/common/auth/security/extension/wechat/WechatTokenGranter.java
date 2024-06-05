@@ -51,6 +51,7 @@ public class WechatTokenGranter extends AbstractTokenGranter {
         ((AbstractAuthenticationToken) userAuth).setDetails(parameters);
 
         try {
+            // authenticationManager 会根据 Authentication 的类型，如果是 WechatAuthenticationToken ，就会选择 WechatAuthenticationProvider 来认证
             userAuth = authenticationManager.authenticate(userAuth);
         }
         catch (Exception e) {
