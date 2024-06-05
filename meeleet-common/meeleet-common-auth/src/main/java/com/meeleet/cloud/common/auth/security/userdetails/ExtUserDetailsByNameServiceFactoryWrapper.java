@@ -21,18 +21,16 @@ import org.springframework.util.Assert;
  * Blog: https://zlt2000.gitee.io
  * Github: https://github.com/zlt2000
  */
-public class UserDetailsByNameServiceFactoryWrapper<T extends Authentication> implements
-        AuthenticationUserDetailsService<T>, InitializingBean {
+public class ExtUserDetailsByNameServiceFactoryWrapper<T extends Authentication> implements AuthenticationUserDetailsService<T>, InitializingBean {
     @Setter
-    private UserDetailServiceFactory userDetailServiceFactory;
+    private ExtUserDetailServiceFactory extUserDetailServiceFactory;
 
-    public UserDetailsByNameServiceFactoryWrapper() {
-
+    public ExtUserDetailsByNameServiceFactoryWrapper() {
     }
 
-    public UserDetailsByNameServiceFactoryWrapper(final UserDetailServiceFactory userDetailServiceFactory) {
-        Assert.notNull(userDetailServiceFactory, "userDetailServiceFactory cannot be null.");
-        this.userDetailServiceFactory = userDetailServiceFactory;
+    public ExtUserDetailsByNameServiceFactoryWrapper(final ExtUserDetailServiceFactory extUserDetailServiceFactory) {
+        Assert.notNull(extUserDetailServiceFactory, "userDetailServiceFactory cannot be null.");
+        this.extUserDetailServiceFactory = extUserDetailServiceFactory;
     }
 
     /**
@@ -42,7 +40,7 @@ public class UserDetailsByNameServiceFactoryWrapper<T extends Authentication> im
      */
     @Override
     public void afterPropertiesSet() {
-        Assert.notNull(this.userDetailServiceFactory, "UserDetailServiceFactory must be set");
+        Assert.notNull(this.extUserDetailServiceFactory, "ExtUserDetailServiceFactory must be set");
     }
 
     /**
@@ -52,9 +50,9 @@ public class UserDetailsByNameServiceFactoryWrapper<T extends Authentication> im
     public UserDetails loadUserDetails(T authentication) throws UsernameNotFoundException {
         ExtUserDetailsService userDetailsService;
         if (authentication instanceof PreAuthenticatedAuthenticationToken) {
-            userDetailsService = this.userDetailServiceFactory.getService((Authentication) authentication.getPrincipal());
+            userDetailsService = this.extUserDetailServiceFactory.getService((Authentication) authentication.getPrincipal());
         } else {
-            userDetailsService = this.userDetailServiceFactory.getService(authentication);
+            userDetailsService = this.extUserDetailServiceFactory.getService(authentication);
         }
         return userDetailsService.loadUserByUsername(authentication.getName());
     }
