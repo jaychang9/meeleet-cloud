@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.auth.config;
+package com.meeleet.cloud.common.auth.security.extension.wechat;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
