@@ -29,7 +29,7 @@ public class ExtUserDetailServiceFactory {
         this.extUserDetailsServiceRegistry = extUserDetailsServiceRegistry;
     }
 
-    public ExtUserDetailsService getService(Authentication authentication) {
+    public ExtUserDetailsService getService(final Authentication authentication) {
         String clientId = RequestUtils.getOAuth2ClientId();
         if (log.isDebugEnabled()) {
             log.debug("根据clientId:{}获取 ExtUserDetailsService ", clientId);
