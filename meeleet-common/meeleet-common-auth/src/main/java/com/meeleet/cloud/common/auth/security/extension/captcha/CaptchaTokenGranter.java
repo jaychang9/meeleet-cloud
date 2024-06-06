@@ -77,6 +77,7 @@ public class CaptchaTokenGranter extends AbstractTokenGranter {
         Authentication userAuth = new UsernamePasswordAuthenticationToken(username, password);
         ((AbstractAuthenticationToken) userAuth).setDetails(parameters);
         try {
+            // authenticationManager 会根据 UsernamePasswordAuthenticationToken 选择 PasswordAuthenticationProvider
             userAuth = authenticationManager.authenticate(userAuth);
         } catch (AccountStatusException ase) {
             //covers expired, locked, disabled cases (mentioned in section 5.2, draft 31)

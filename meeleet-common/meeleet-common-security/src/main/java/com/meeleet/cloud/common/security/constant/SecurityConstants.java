@@ -128,5 +128,4 @@ public interface SecurityConstants {
      */
     List<String> PROD_FORBID_METHODS = Arrays.asList("PUT", "DELETE");
 
-
 }

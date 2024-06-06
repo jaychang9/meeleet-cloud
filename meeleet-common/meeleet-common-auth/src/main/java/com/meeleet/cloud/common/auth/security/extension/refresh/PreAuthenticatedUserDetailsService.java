@@ -1,5 +1,6 @@
 package com.meeleet.cloud.common.auth.security.extension.refresh;
 
+import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailServiceFactory;
 import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
 import com.meeleet.cloud.common.enums.IBaseEnum;
 import com.meeleet.cloud.common.security.enums.AuthenticationIdentityEnum;
@@ -12,8 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.util.Assert;
 
-import java.util.Map;
-
 /**
  * 刷新token再次认证 UserDetailsService
  *
@@ -22,19 +21,16 @@ import java.util.Map;
 @NoArgsConstructor
 public class PreAuthenticatedUserDetailsService<T extends Authentication> implements AuthenticationUserDetailsService<T>, InitializingBean {
 
-    /**
-     * 客户端ID和用户服务 UserDetailService 的映射
-     */
-    private Map<String, ExtUserDetailsService> userDetailsServiceMap;
+    private ExtUserDetailServiceFactory extUserDetailServiceFactory;
 
-    public PreAuthenticatedUserDetailsService(Map<String, ExtUserDetailsService> userDetailsServiceMap) {
-        Assert.notNull(userDetailsServiceMap, "UserDetailsServiceMap cannot be null.");
-        this.userDetailsServiceMap = userDetailsServiceMap;
+    public PreAuthenticatedUserDetailsService(ExtUserDetailServiceFactory extUserDetailServiceFactory) {
+        Assert.notNull(extUserDetailServiceFactory, "extUserDetailServiceFactory cannot be null.");
+        this.extUserDetailServiceFactory = extUserDetailServiceFactory;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Assert.notNull(this.userDetailsServiceMap, "userDetailsServiceMap must be set");
+        Assert.notNull(this.extUserDetailServiceFactory, "extUserDetailServiceFactory must be set");
     }
 
     /**
@@ -49,7 +45,7 @@ public class PreAuthenticatedUserDetailsService<T extends Authentication> implem
         String clientId = RequestUtils.getOAuth2ClientId();
         // 获取认证身份标识，默认是用户名:username
         AuthenticationIdentityEnum authenticationIdentityEnum = IBaseEnum.getEnumByValue(RequestUtils.getAuthenticationIdentity(), AuthenticationIdentityEnum.class);
-        ExtUserDetailsService userDetailsService = userDetailsServiceMap.get(clientId);
+        ExtUserDetailsService userDetailsService = extUserDetailServiceFactory.getService(clientId);
 
         if (AuthenticationIdentityEnum.MOBILE.equals(authenticationIdentityEnum)) {
             return userDetailsService.loadUserByMobile(authentication.getName());

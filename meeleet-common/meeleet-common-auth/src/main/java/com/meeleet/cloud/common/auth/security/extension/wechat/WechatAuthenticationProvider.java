@@ -4,8 +4,11 @@ import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaUserInfo;
 import cn.hutool.core.bean.BeanUtil;
+import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailServiceFactory;
 import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.auth.security.userdetails.PreAuthenticationChecks;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
@@ -26,11 +29,13 @@ import java.util.Optional;
  */
 public class WechatAuthenticationProvider implements AuthenticationProvider {
 
-    /**
-     * key为clientId,value为userDetailsService
-     */
-    private Map<String, ExtUserDetailsService> userDetailsServiceMap;
+    @Setter
+    private ExtUserDetailServiceFactory extUserDetailServiceFactory;
+
+    @Setter
     private WxMaService wxMaService;
+
+    private PreAuthenticationChecks preAuthenticationChecks = new PreAuthenticationChecks();
 
     /**
      * 微信认证
@@ -66,6 +71,9 @@ public class WechatAuthenticationProvider implements AuthenticationProvider {
             userDetailsService.addUser(BeanUtil.beanToMap(userInfo));
         }
         loadedUser = userDetailsService.loadUserByOpenid(openid);
+
+        preAuthenticationChecks.check(loadedUser);
+
         WechatAuthenticationToken result = new WechatAuthenticationToken(loadedUser, Optional.ofNullable(loadedUser.getAuthorities()).orElse(new HashSet<>()));
         result.setDetails(authentication.getDetails());
         return result;
@@ -78,14 +86,6 @@ public class WechatAuthenticationProvider implements AuthenticationProvider {
     }
 
     public ExtUserDetailsService getUserDetailsService(String clientId) {
-        return this.userDetailsServiceMap.get(clientId);
-    }
-
-    public void setUserDetailsServiceMap(Map<String, ExtUserDetailsService> userDetailsServiceMap) {
-        this.userDetailsServiceMap = userDetailsServiceMap;
-    }
-
-    public void setWxMaService(WxMaService wxMaService) {
-        this.wxMaService = wxMaService;
+        return this.extUserDetailServiceFactory.getService(clientId);
     }
 }

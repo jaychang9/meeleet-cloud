@@ -22,6 +22,7 @@
         <hutool.version>5.8.10</hutool.version>
         <swagger-annotations.version>2.2.1</swagger-annotations.version>
         <springdoc.version>1.6.9</springdoc.version>
+        <spring-plugin-core.version>2.0.0.RELEASE</spring-plugin-core.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <dubbo.version>2.7.23</dubbo.version>
         <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
@@ -147,7 +148,11 @@
                 <artifactId>springdoc-openapi-webflux-ui</artifactId>
                 <version>${springdoc.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>${spring-plugin-core.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>weixin-java-miniapp</artifactId>

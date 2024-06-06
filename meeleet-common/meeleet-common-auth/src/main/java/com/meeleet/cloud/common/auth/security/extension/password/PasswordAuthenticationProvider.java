@@ -1,7 +1,8 @@
 package com.meeleet.cloud.common.auth.security.extension.password;
 
-import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailsService;
+import com.meeleet.cloud.common.auth.security.userdetails.ExtUserDetailServiceFactory;
 import com.meeleet.cloud.common.security.constant.SecurityConstants;
+import lombok.Setter;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
@@ -27,7 +28,7 @@ import java.util.Map;
  *
  * @author Jay Chang
  */
-public class DaoxAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+public class PasswordAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
     /**
      * The plaintext password used to perform PasswordEncoder#matches(CharSequence,
@@ -45,11 +46,12 @@ public class DaoxAuthenticationProvider extends AbstractUserDetailsAuthenticatio
      */
     private volatile String userNotFoundEncodedPassword;
 
-    private Map<String, ExtUserDetailsService> userDetailsServiceMap;
+    @Setter
+    private ExtUserDetailServiceFactory extUserDetailServiceFactory;
 
     private UserDetailsPasswordService userDetailsPasswordService;
 
-    public DaoxAuthenticationProvider() {
+    public PasswordAuthenticationProvider() {
         setPasswordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
     }
 
@@ -72,7 +74,7 @@ public class DaoxAuthenticationProvider extends AbstractUserDetailsAuthenticatio
 
     @Override
     protected void doAfterPropertiesSet() {
-        Assert.notNull(this.userDetailsServiceMap, "A UserDetailsServiceMap must be set");
+        Assert.notNull(this.extUserDetailServiceFactory, "A ExtUserDetailServiceFactory must be set");
     }
 
     @Override
@@ -147,16 +149,8 @@ public class DaoxAuthenticationProvider extends AbstractUserDetailsAuthenticatio
         return this.passwordEncoder;
     }
 
-    public void setUserDetailsServiceMap(Map<String, ExtUserDetailsService> userDetailsServiceMap) {
-        this.userDetailsServiceMap = userDetailsServiceMap;
-    }
-
-    public Map<String, ExtUserDetailsService> getUserDetailsServiceMap() {
-        return userDetailsServiceMap;
-    }
-
     protected UserDetailsService getUserDetailsService(String clientId) {
-        return this.userDetailsServiceMap.get(clientId);
+        return this.extUserDetailServiceFactory.getService(clientId);
     }
 
     public void setUserDetailsPasswordService(UserDetailsPasswordService userDetailsPasswordService) {

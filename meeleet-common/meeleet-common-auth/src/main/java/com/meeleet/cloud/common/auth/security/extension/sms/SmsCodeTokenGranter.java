@@ -1,4 +1,4 @@
-package com.meeleet.cloud.common.auth.security.extension.mobile;
+package com.meeleet.cloud.common.auth.security.extension.sms;
 
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.AccountStatusException;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 手机验证码授权者
+ * 短信验证码授权者
  *
  * @author jaychang
  * @date 2021/9/25
