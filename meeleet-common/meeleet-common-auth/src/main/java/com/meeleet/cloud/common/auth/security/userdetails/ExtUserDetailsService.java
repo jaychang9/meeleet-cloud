@@ -17,7 +17,7 @@ public interface ExtUserDetailsService extends UserDetailsService, Plugin<String
     /**
      * 根据手机号加载用户信息
      *
-     * @param username
+     * @param mobile
      * @return
      * @throws UsernameNotFoundException
      */
@@ -26,7 +26,7 @@ public interface ExtUserDetailsService extends UserDetailsService, Plugin<String
     /**
      * 根据手机号加载用户信息(若无此认证方式，则实现类无需实现该方法)
      *
-     * @param openId
+     * @param openid
      * @return
      * @throws UsernameNotFoundException
      */
